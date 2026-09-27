@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  <body>
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><a class="nav-link" href="/#finder">Find a program <span aria-hidden="true">↗</span></a></header>
+    <main class="detail-page">
+      <a class="back-link" href="/#finder">← Back to the directory</a>
+      <p class="eyebrow muted">{{ .Params.type }} · {{ delimit .Params.counties ", " }} COUNTY</p>
+      <h1>{{ .Title }}</h1>
+      <p class="detail-location">{{ .Params.location }}</p>
+      <div class="detail-cost"><span>TYPICAL COST</span><strong>{{ .Params.cost }}</strong></div>
+      <div class="detail-columns">
+        <section><h2>How to book</h2><p>{{ .Params.booking }}</p><a class="primary-link" href="{{ .Params.booking_url }}" target="_blank" rel="noopener">Open booking information ↗</a></section>
+        <section><h2>Who can use this</h2><p>{{ .Params.eligibility }}</p><h2>Service details</h2><p>{{ .Params.details }}</p></section>
+      </div>
+      {{ with .Params.related }}
+      <section class="related-resources"><h2>Related programs</h2><div>{{ range . }}{{ with $.Site.GetPage (printf "/resources/%s" .) }}<a href="{{ .RelPermalink }}">{{ .Title }} <span>↗</span></a>{{ end }}{{ end }}</div></section>
+      {{ end }}
+      <div class="detail-source"><span>Source checked {{ .Params.verified }}</span><a href="{{ .Params.source_url }}" target="_blank" rel="noopener">Confirm current details with the provider ↗</a></div>
+      <p class="detail-note">Fees, service area, and appointment availability can change. Please confirm current instructions before trapping or traveling.</p>
+    </main>
+    <footer><a class="brand footer-brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Made for the humans who show up for cats.</span><a href="/about/">About this guide ↗</a></footer>
+  </body>
+</html>

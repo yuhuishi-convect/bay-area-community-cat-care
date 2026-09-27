@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Bay Area Community Cat Care home"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a>
+      <a class="nav-link" href="#how-it-works">TNR basics <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> COMMUNITY CAT RESOURCE GUIDE <span class="hero-region">· SF BAY AREA</span></p>
+          <h1>Good care starts<br>close to <em>home.</em></h1>
+          <p class="hero-intro">Find trusted TNR programs and affordable spay &amp; neuter services for outdoor cats in your neighborhood.</p>
+          <form id="search-form" class="search-box" role="search">
+            <label class="sr-only" for="location">Your city or county</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="location" name="location" autocomplete="off" placeholder="Enter your city or county" aria-describedby="search-hint" role="combobox" aria-autocomplete="list" aria-controls="location-suggestions" aria-expanded="false">
+            <button type="submit">Find care <span aria-hidden="true">→</span></button>
+            <ul id="location-suggestions" class="suggestions" role="listbox" hidden></ul>
+          </form>
+          <p id="search-hint" class="search-hint">Try Oakland, San Jose, or Marin County</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
+          <div class="cat-illustration"><div class="cat-tail"></div><div class="cat-body"></div><div class="cat-head"><i class="ear ear-left"></i><i class="ear ear-right"></i><span class="eye eye-left"></span><span class="eye eye-right"></span><span class="nose"></span><span class="whisker whisker-left"></span><span class="whisker whisker-right"></span></div><div class="cat-leg leg-one"></div><div class="cat-leg leg-two"></div></div>
+          <span class="art-caption">A little help can change a whole colony.</span>
+          <span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✳</span>
+        </div>
+      </section>
+      <section class="finder" id="finder">
+        <div class="section-heading">
+          <div><p class="eyebrow muted">THE DIRECTORY</p><h2>Find a program near you</h2></div>
+          <span class="directory-count" id="result-count"></span>
+        </div>
+        <div class="filters">
+          <div class="county-filter"><label for="county-select">I live in</label><select id="county-select"><option value="">All areas</option></select></div>
+          <div class="filter-spacer"></div>
+          <button class="filter-chip active" data-filter="all">All resources</button>
+          <button class="filter-chip" data-filter="tnr">Community cats</button>
+          <button class="filter-chip" data-filter="owned">Owned cats</button>
+        </div>
+        <div class="results-note" id="results-note" aria-live="polite"></div>
+        <div class="resource-grid" id="resource-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden><span class="empty-icon">⌕</span><h3>No exact matches yet</h3><p>Try a nearby county or broaden your search to all resources.</p><button class="text-button" id="clear-search">Show all Bay Area programs →</button></div>
+        <p class="directory-footnote">Program details and appointment availability change. Confirm requirements and total fees with the provider before trapping or traveling.</p>
+      </section>
+      <section class="how-section" id="how-it-works">
+        <div class="how-intro"><p class="eyebrow muted">A QUICK GUIDE</p><h2>Three steps.<br><em>More peaceful nights.</em></h2><p>TNR helps outdoor cats live healthier lives while preventing future litters. A tipped ear is the universal sign a cat has already been fixed.</p><a class="learn-link" href="https://www.alleycat.org/resources/what-is-tnr/" target="_blank" rel="noopener">Learn about TNR <span>↗</span></a></div>
+        <div class="steps"><article class="step"><span class="step-number">01</span><div><h3>Find your local program</h3><p>Search by city or county and check that the program accepts community cats from your area.</p></div><span class="step-icon">⌖</span></article><article class="step"><span class="step-number">02</span><div><h3>Book before you trap</h3><p>Most clinics need an appointment. Ask about humane traps, drop-off times, fees, and recovery.</p></div><span class="step-icon">▤</span></article><article class="step"><span class="step-number">03</span><div><h3>Return them to their home</h3><p>After surgery and recovery, return each cat to the same place they were trapped.</p></div><span class="step-icon">↗</span></article></div>
+      </section>
+      <section class="maintain"><span class="maintain-mark">✳</span><div><p class="eyebrow muted">KEEPING THIS GUIDE CURRENT</p><h2>Know a resource we missed?</h2><p>Suggest an addition or correction by emailing Yoshi, or see how to maintain the directory.</p></div><a class="maintain-link" href="mailto:dayeye2006@gmail.com?subject=Bay%20Area%20cat%20resource%20directory">Email Yoshi <span>↗</span></a><a class="maintain-link" href="/about/">Maintainer guide <span>↗</span></a></section>
+    </main>
+    <footer><a class="brand footer-brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Resources last researched: {{ .Site.Params.last_resource_research }}</span><a href="/about/">About this guide ↗</a></footer>
+    <script>window.directoryResources = {{ $items := where .Site.RegularPages "Section" "resources" }}{{ $out := slice }}{{ range $items }}{{ $out = $out | append (dict "name" .Title "permalink" .RelPermalink "county" .Params.county "counties" .Params.counties "cities" .Params.cities "countywide" .Params.countywide "type" .Params.type "cost" .Params.cost "booking" .Params.booking "eligibility" .Params.eligibility "details" .Params.details "bookingUrl" .Params.booking_url "website" .Params.website "sourceUrl" .Params.source_url "updated" .Params.verified "status" .Params.status "featured" .Params.featured "location" .Params.location "phone" .Params.phone) }}{{ end }}{{ $out | jsonify | safeJS }};</script>
+    {{ $js := resources.Get "js/site.js" | minify | fingerprint }}<script src="{{ $js.RelPermalink }}" defer></script>
+  </body>
+</html>

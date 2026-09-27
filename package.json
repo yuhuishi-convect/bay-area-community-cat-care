@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo",
+    "deploy": "npm run build && wrangler pages deploy public --project-name=bay-area-community-cat-care"
+  },
+  "devDependencies": {
+    "wrangler": "^4.141.0"
+  }
+}

@@ -1,0 +1,15 @@
+baseURL = "https://bay-area-community-cat-care.pages.dev/"
+locale = "en-us"
+title = "Bay Area Community Cat Care"
+enableRobotsTXT = true
+
+[params]
+  description = "Find TNR and low-cost spay and neuter services for community cats across the San Francisco Bay Area."
+  region = "San Francisco Bay Area"
+  last_resource_research = "September 26, 2026"
+
+[outputs]
+  home = ["HTML"]
+
+[markup.goldmark.renderer]
+  unsafe = false

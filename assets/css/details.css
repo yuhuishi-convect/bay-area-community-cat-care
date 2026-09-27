@@ -1,0 +1,26 @@
+.card-title-link{color:inherit;text-decoration:none}.card-title-link:hover{color:#47745e}
+.detail-page{max-width:900px;min-height:calc(100vh - 150px);margin:0 auto;padding:62px 28px 90px}
+.back-link{display:inline-block;color:#547666;text-decoration:none;font-size:12px;font-weight:600;margin-bottom:39px}
+.detail-page>.eyebrow{margin-bottom:12px}
+.detail-page h1{font:600 clamp(35px,5vw,56px)/1.08 var(--display);letter-spacing:-2.5px;margin:0;color:#193b34;max-width:780px}
+.detail-location{color:#7f8d83;font-size:13px;margin:13px 0 26px}
+.detail-cost{background:#edf2e8;border-radius:10px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.detail-cost span{font-size:10px;letter-spacing:1.3px;font-weight:700;color:#7d8d7e}
+.detail-cost strong{font:700 18px var(--display);color:#355e4b;text-align:right}
+.detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:36px}
+.detail-columns section{border-top:1px solid var(--line);padding-top:19px}
+.detail-columns h2,.related-resources h2{font:700 15px var(--display);margin:0 0 9px}
+.detail-columns p{font-size:13px;line-height:1.75;color:#687970;margin:0 0 18px}
+.detail-source{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding-top:17px;margin-top:35px;color:#8a968d;font-size:10px}
+.detail-source a{color:#3d705a;text-decoration:none;font-weight:600}
+.detail-note{font-size:10px;line-height:1.65;color:#929d93;margin-top:14px}
+.related-resources{border-top:1px solid var(--line);padding-top:18px;margin-top:27px}
+.related-resources>div{display:flex;flex-wrap:wrap;gap:8px}
+.related-resources a{background:#edf2e8;border-radius:7px;padding:9px 11px;color:#3d705a;text-decoration:none;font-size:11px;font-weight:600}
+.related-resources a span{color:#e17d59;margin-left:5px}
+.about-page{max-width:760px}
+.about-page h1{margin-bottom:28px}
+.about-copy{font-size:14px;line-height:1.8;color:#64766b}
+.about-copy p{margin:0 0 17px}
+.about-copy code{font-size:12px;background:#edf1e8;padding:2px 5px;border-radius:4px}
+@media(max-width:650px){.detail-page{padding:45px 20px 66px;min-height:calc(100vh - 150px)}.detail-page h1{font-size:38px}.detail-columns{grid-template-columns:1fr;gap:25px}.detail-cost{align-items:flex-start;flex-direction:column;gap:8px}.detail-cost strong{text-align:left}.detail-source{flex-direction:column}}

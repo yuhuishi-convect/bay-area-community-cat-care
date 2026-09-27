@@ -1,0 +1,14 @@
+.search-box{position:relative;z-index:5}
+.suggestions{position:absolute;top:calc(100% + 7px);left:0;right:0;z-index:10;max-height:280px;overflow-y:auto;padding:5px;margin:0;list-style:none;background:var(--white);border:1px solid #d9ded3;border-radius:10px;box-shadow:0 12px 28px rgba(37,62,52,.14)}
+.suggestions[hidden]{display:none}
+.suggestions li{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:7px;color:var(--ink);font-size:13px;cursor:pointer}
+.suggestions li:hover,.suggestions li[aria-selected="true"]{background:#eef2e9}
+.suggestions small{color:#87958b;font-size:10px}
+.resource-card{display:flex;flex-direction:column}
+.resource-card h3{min-height:44px;display:flex;align-items:flex-start}
+.card-location{min-height:12px}
+.card-cost{min-height:43px}
+.card-detail{min-height:70px}
+.card-actions{margin-top:auto;padding-top:15px}
+.contact-maintainer{margin-top:2rem;padding:1rem 1.2rem;background:#e9eee2;border-radius:10px;color:#52685c}
+.contact-maintainer a{color:#315b48;font-weight:700}
