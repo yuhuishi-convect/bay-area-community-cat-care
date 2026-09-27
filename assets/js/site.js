@@ -1,5 +1,6 @@
 (() => {
   const resources = window.directoryResources || [];
+  const zipCountyLookup = window.zipCountyLookup || {};
   const form = document.querySelector('#search-form');
   const locationInput = document.querySelector('#location');
   const suggestions = document.querySelector('#location-suggestions');
@@ -30,6 +31,9 @@
     const display = name.replace(/\b\w/g, letter => letter.toUpperCase());
     if (!places.has(clean(name))) places.set(clean(name), {label: display, value: name, kind: name === county ? 'County' : 'City'});
   }));
+  Object.keys(zipCountyLookup).forEach(zip => places.set(zip, {
+    label: `${zip} · ${zipCountyLookup[zip].join(' / ')} County area`, value: zip, kind: 'ZIP code'
+  }));
   const placeOptions = [...places.values()];
   let activeSuggestion = -1;
   areaNames.forEach(area => {
@@ -46,6 +50,11 @@
     const q = clean(query);
     const countyValues = [item.county, ...(item.counties || [])].filter(Boolean).map(clean);
     const cityValues = (item.cities || []).map(clean);
+    const zip = String(query).trim();
+    if (/^\d{5}$/.test(zip)) {
+      const zipCounties = zipCountyLookup[zip];
+      return Boolean(zipCounties && zipCounties.some(county => countyValues.includes(clean(county))));
+    }
     if (countyValues.includes(q) || cityValues.includes(q)) return true;
     for (const [county, words] of Object.entries(aliases)) {
       if (q === county || words.includes(q)) {
@@ -89,6 +98,8 @@
       const selected = clean(countySelect.value);
       const cities = (item.cities || []).map(clean);
       const counties = (item.counties || []).map(clean);
+      const zip = String(locationInput.value).trim();
+      if (/^\d{5}$/.test(zip) && (zipCountyLookup[zip] || []).some(county => counties.includes(clean(county)))) return 2;
       if (q && cities.includes(q)) return 2;
       if (selected && counties.includes(selected)) return 1;
       return 0;
@@ -98,8 +109,12 @@
     count.textContent = `${results.length} ${results.length === 1 ? 'program' : 'programs'}`;
     empty.hidden = results.length > 0;
     grid.hidden = results.length === 0;
+    const zip = String(locationInput.value).trim();
+    const zipCounties = /^\d{5}$/.test(zip) ? zipCountyLookup[zip] : null;
     const selected = countySelect.value || locationInput.value;
-    note.textContent = selected ? `Showing options for ${selected}. Some programs serve nearby cities too; check eligibility before booking.` : 'Browse programs across all listed areas.';
+    if (zipCounties) note.textContent = `Showing programs serving ${zipCounties.map(county => `${county} County`).join(' / ')} areas near ${zip}. ZIP-to-county lookup is approximate; confirm service eligibility with each provider.`;
+    else if (/^\d{5}$/.test(zip)) note.textContent = `No Bay Area ZIP code match for ${zip}. Try a nearby city or county.`;
+    else note.textContent = selected ? `Showing options for ${selected}. Some programs serve nearby cities too; check eligibility before booking.` : 'Browse programs across all listed areas.';
   }
   function hideSuggestions() {
     suggestions.hidden = true;

@@ -13,13 +13,13 @@
           <h1>Good care starts<br>close to <em>home.</em></h1>
           <p class="hero-intro">Find trusted TNR programs and affordable spay &amp; neuter services for outdoor cats in your neighborhood.</p>
           <form id="search-form" class="search-box" role="search">
-            <label class="sr-only" for="location">Your city or county</label>
+            <label class="sr-only" for="location">Your city, county, or ZIP code</label>
             <span class="search-icon" aria-hidden="true">⌕</span>
-            <input id="location" name="location" autocomplete="off" placeholder="Enter your city or county" aria-describedby="search-hint" role="combobox" aria-autocomplete="list" aria-controls="location-suggestions" aria-expanded="false">
+            <input id="location" name="location" autocomplete="off" placeholder="Enter your city, county, or ZIP code" aria-describedby="search-hint" role="combobox" aria-autocomplete="list" aria-controls="location-suggestions" aria-expanded="false">
             <button type="submit">Find care <span aria-hidden="true">→</span></button>
             <ul id="location-suggestions" class="suggestions" role="listbox" hidden></ul>
           </form>
-          <p id="search-hint" class="search-hint">Try Oakland, San Jose, or Marin County</p>
+          <p id="search-hint" class="search-hint">Try Oakland, San Jose, Marin County, or a ZIP code like 94607</p>
         </div>
         <div class="hero-art" aria-hidden="true">
           <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
@@ -52,7 +52,7 @@
       <section class="maintain"><span class="maintain-mark">✳</span><div><p class="eyebrow muted">KEEPING THIS GUIDE CURRENT</p><h2>Know a resource we missed?</h2><p>Suggest an addition or correction by <a href="https://github.com/yuhuishi-convect/bay-area-community-cat-care" target="_blank" rel="noopener">opening an issue or pull request on GitHub</a>, or email Yoshi.</p></div><a class="maintain-link" href="mailto:dayeye2006@gmail.com?subject=Bay%20Area%20cat%20resource%20directory">Email Yoshi <span>↗</span></a><a class="maintain-link" href="/about/">Maintainer guide <span>↗</span></a></section>
     </main>
     <footer><a class="brand footer-brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Resources last researched: {{ .Site.Params.last_resource_research }}</span><a href="/about/">About this guide ↗</a></footer>
-    <script>window.directoryResources = {{ $items := where .Site.RegularPages "Section" "resources" }}{{ $out := slice }}{{ range $items }}{{ $out = $out | append (dict "name" .Title "permalink" .RelPermalink "county" .Params.county "counties" .Params.counties "cities" .Params.cities "countywide" .Params.countywide "type" .Params.type "cost" .Params.cost "booking" .Params.booking "eligibility" .Params.eligibility "details" .Params.details "bookingUrl" .Params.booking_url "website" .Params.website "sourceUrl" .Params.source_url "updated" .Params.verified "status" .Params.status "featured" .Params.featured "location" .Params.location "phone" .Params.phone) }}{{ end }}{{ $out | jsonify | safeJS }};</script>
+    <script>window.directoryResources = {{ $items := where .Site.RegularPages "Section" "resources" }}{{ $out := slice }}{{ range $items }}{{ $out = $out | append (dict "name" .Title "permalink" .RelPermalink "county" .Params.county "counties" .Params.counties "cities" .Params.cities "countywide" .Params.countywide "type" .Params.type "cost" .Params.cost "booking" .Params.booking "eligibility" .Params.eligibility "details" .Params.details "bookingUrl" .Params.booking_url "website" .Params.website "sourceUrl" .Params.source_url "updated" .Params.verified "status" .Params.status "featured" .Params.featured "location" .Params.location "phone" .Params.phone) }}{{ end }}{{ $out | jsonify | safeJS }}; window.zipCountyLookup = {{ index hugo.Data "zip-counties" | jsonify | safeJS }};</script>
     {{ $js := resources.Get "js/site.js" | minify | fingerprint }}<script src="{{ $js.RelPermalink }}" defer></script>
   </body>
 </html>

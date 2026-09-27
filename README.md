@@ -8,6 +8,8 @@ Each listing is a Markdown file under `content/resources/`. Copy an existing fil
 
 The site is static: content changes are reviewed as ordinary source changes and published with the next Cloudflare Pages build. No visitor submissions or server database are involved.
 
+The search also accepts five-digit ZIP codes. Its bundled `data/zip-counties.json` is generated from the U.S. Census Bureau's ZCTA-to-county relationship data with `python3 scripts/build_zip_counties.py`. ZIP/ZCTA geography is approximate; confirm a provider's service area directly. See `/about/` for adding a county to the ZIP lookup.
+
 ## Local preview
 
 Install Hugo, then run `hugo server`. Production output is generated with `hugo` into `public/`.

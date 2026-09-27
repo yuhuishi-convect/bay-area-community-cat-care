@@ -30,6 +30,8 @@ For an existing region, add the city to `cities` on each resource that serves it
 
 For a new county, add a resource record with the county name in both `county` and `counties`; the county selector will include it automatically. Add its major cities to `cities` on the relevant records. Then add the new county key and city-name aliases to the `aliases` object near the top of `assets/js/site.js`. This helps searches for cities that are not yet named by a provider match the countywide programs without showing city-restricted clinics in the wrong place. Leave out `countywide: true` for clinics that only accept cats from certain cities.
 
+ZIP-code search uses the generated `data/zip-counties.json` lookup. To include another county in ZIP searches, add its five-digit Census county FIPS code and display name to `COUNTIES` in `scripts/build_zip_counties.py`, then run `python3 scripts/build_zip_counties.py`. The lookup is based on Census ZIP Code Tabulation Areas (ZCTAs), which approximate USPS ZIP-code geography and can overlap or differ from ZIP delivery areas; providers' stated service boundaries always take precedence.
+
 ## Connect the record to the directory
 
 No registration step is needed: Hugo includes every Markdown file under `content/resources/` in the home page data. The directory filters use `counties`, `cities`, `countywide`, and `type`; the booking and source links are rendered from their URL fields. If two services should point to each other, use matching `related` slug values. Rebuild with `hugo` and preview with `hugo server`.
