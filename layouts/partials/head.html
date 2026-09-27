@@ -9,6 +9,7 @@
   {{ $detailCss := resources.Get "css/details.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $detailCss.RelPermalink }}">
   {{ $cardCss := resources.Get "css/cards.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $cardCss.RelPermalink }}">
   {{ $i18nCss := resources.Get "css/i18n.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $i18nCss.RelPermalink }}">
+  {{ $readabilityCss := resources.Get "css/readability.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $readabilityCss.RelPermalink }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">

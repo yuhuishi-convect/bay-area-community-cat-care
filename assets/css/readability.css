@@ -1,0 +1,94 @@
+/* Larger type, calmer line lengths, and touch-friendly controls. */
+body {
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: auto;
+}
+
+.brand { font-size: 16px; }
+.nav-link { font-size: 15px; }
+.eyebrow { font-size: 12px; line-height: 1.4; letter-spacing: 1.3px; }
+.hero-intro { font-size: 18px; line-height: 1.65; }
+.search-box { min-height: 64px; height: auto; }
+.search-box input { font-size: 16px; }
+.search-box button { min-height: 48px; height: auto; font-size: 15px; }
+.search-hint { font-size: 14px; line-height: 1.5; color: #66766b; }
+
+.section-heading h2,
+.how-intro h2 { font-size: 38px; }
+.directory-count { font-size: 14px; }
+.county-filter { min-height: 44px; }
+.county-filter label { font-size: 14px; color: #66766b; }
+.county-filter select { min-height: 40px; font-size: 15px; }
+.filter-chip { min-height: 44px; padding: 10px 15px; font-size: 14px; }
+.results-note { font-size: 14px; line-height: 1.55; color: #66766b; }
+
+.resource-card { padding: 23px; }
+.resource-card h3 { min-height: 54px; font-size: 19px; line-height: 1.4; letter-spacing: -.2px; }
+.kind-pill,
+.status-pill { min-height: 30px; padding: 6px 10px; font-size: 12px; letter-spacing: 0; }
+.card-location { font-size: 14px; line-height: 1.45; color: #66766b; }
+.cost-label { font-size: 12px; letter-spacing: .7px; color: #66766b; }
+.card-cost strong { font-size: 17px; line-height: 1.4; }
+.card-detail { min-height: 0; font-size: 15px; line-height: 1.65; }
+.card-info p { font-size: 14px; line-height: 1.6; }
+.card-info b { font-size: 14px; line-height: 1.4; }
+.card-tags { gap: 7px; }
+.card-tags span { font-size: 12px; padding: 5px 9px; }
+.primary-link,
+.source-link { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; }
+.primary-link { padding: 10px 14px; }
+.verified { font-size: 12px; line-height: 1.5; color: #66766b; }
+.directory-footnote { font-size: 14px; line-height: 1.6; color: #66766b; }
+.empty-state p { font-size: 15px; }
+.text-button { min-height: 44px; font-size: 14px; }
+
+.how-intro > p:not(.eyebrow),
+.step p { font-size: 15px; line-height: 1.7; }
+.step-number { font-size: 13px; }
+.step h3 { font-size: 17px; line-height: 1.4; }
+.learn-link { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; }
+.maintain .eyebrow { font-size: 12px; }
+.maintain h2 { font-size: 19px; }
+.maintain p:not(.eyebrow),
+.maintain-link { font-size: 14px; line-height: 1.6; }
+.maintain-link { min-height: 44px; display: inline-flex; align-items: center; }
+footer { font-size: 13px; line-height: 1.5; }
+.footer-brand { font-size: 14px; }
+
+.language-label select { min-height: 44px; font-size: 14px; }
+.language-note { font-size: 13px; line-height: 1.65; color: #5f7065; }
+
+.back-link { font-size: 14px; }
+.detail-location { font-size: 15px; line-height: 1.5; color: #66766b; }
+.detail-cost { align-items: flex-start; }
+.detail-cost span { font-size: 12px; letter-spacing: .8px; }
+.detail-cost strong { font-size: 20px; line-height: 1.45; }
+.detail-columns h2,
+.related-resources h2 { font-size: 19px; line-height: 1.4; }
+.detail-columns p { font-size: 16px; line-height: 1.75; color: #53665b; }
+.detail-source { font-size: 13px; line-height: 1.6; color: #66766b; }
+.detail-note { font-size: 13px; line-height: 1.65; color: #66766b; }
+.related-resources a { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; }
+.about-copy { font-size: 16px; line-height: 1.8; }
+.about-copy code { font-size: 14px; }
+
+:where(a, button, input, select):focus-visible {
+  outline: 3px solid #b95531;
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  .hero-intro { font-size: 17px; }
+  .section-heading h2 { font-size: 30px; }
+  .how-intro h2 { font-size: 35px; }
+  .county-filter select { font-size: 16px; }
+  .filter-chip { font-size: 14px; }
+  .resource-card { padding: 20px; }
+  .card-actions { flex-wrap: wrap; gap: 8px; }
+  .maintain-link { margin-left: 0; }
+  .topbar-tools { gap: 8px; }
+  .nav-link { font-size: 13px; }
+  .language-label select { max-width: 120px; padding: 6px; }
+  .detail-page h1 { font-size: 40px; }
+}
