@@ -19,15 +19,16 @@
     'solano': ['solano', 'vallejo', 'benicia', 'fairfield', 'vacaville', 'suisun city', 'dixon'],
     'sonoma': ['sonoma', 'santa rosa', 'rohnert park', 'windsor', 'petaluma', 'healdsburg', 'sonoma valley']
   };
+  const clean = value => (value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ county/g, '').replace(/[^a-z0-9 ]/g, ' ').trim();
   const areaNames = [...new Set(resources.flatMap(item => item.counties || (item.county ? [item.county] : [])))].sort((a,b) => a.localeCompare(b));
   const places = new Map();
-  areaNames.forEach(county => places.set(county, {label: `${county} County`, value: county, kind: 'County'}));
+  areaNames.forEach(county => places.set(clean(county), {label: `${county} County`, value: county, kind: 'County'}));
   resources.flatMap(item => item.cities || []).forEach(city => {
-    if (!places.has(city)) places.set(city, {label: city, value: city, kind: 'City'});
+    if (!places.has(clean(city))) places.set(clean(city), {label: city, value: city, kind: 'City'});
   });
   Object.entries(aliases).forEach(([county, names]) => names.forEach(name => {
     const display = name.replace(/\b\w/g, letter => letter.toUpperCase());
-    if (!places.has(name)) places.set(name, {label: display, value: name, kind: name === county ? 'County' : 'City'});
+    if (!places.has(clean(name))) places.set(clean(name), {label: display, value: name, kind: name === county ? 'County' : 'City'});
   }));
   const placeOptions = [...places.values()];
   let activeSuggestion = -1;
@@ -38,7 +39,6 @@
     countySelect.append(option);
   });
   let mode = 'all';
-  const clean = value => (value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ county/g, '').replace(/[^a-z0-9 ]/g, ' ').trim();
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
   function locationMatch(item, query) {

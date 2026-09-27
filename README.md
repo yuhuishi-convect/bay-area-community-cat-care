@@ -14,7 +14,14 @@ Install Hugo, then run `hugo server`. Production output is generated with `hugo`
 
 ## Cloudflare Pages
 
-The public source repository is [yuhuishi-convect/bay-area-community-cat-care](https://github.com/yuhuishi-convect/bay-area-community-cat-care). The current deployment uses Cloudflare Pages Direct Upload: authenticate with `npx wrangler login`, then run `npm run deploy`. The Pages project name is `bay-area-community-cat-care` and the generated site is in `public/`. Direct Upload does not automatically rebuild on file changes; run the deploy command again after editing. If automatic Git-based deployments are wanted later, create a Git-integrated Pages project connected to the repository.
+The public source repository is [yuhuishi-convect/bay-area-community-cat-care](https://github.com/yuhuishi-convect/bay-area-community-cat-care). It uses Cloudflare Pages Direct Upload with a GitHub Actions workflow at `.github/workflows/deploy-pages.yml`. Pushes to `master` build with Hugo and deploy the generated `public/` directory to the production Pages project `bay-area-community-cat-care`.
+
+Before Actions can deploy, add these repository secrets under GitHub Settings → Secrets and variables → Actions:
+
+- `CLOUDFLARE_API_TOKEN`: a custom Cloudflare API token with Account → Cloudflare Pages → Edit permission.
+- `CLOUDFLARE_ACCOUNT_ID`: the Cloudflare account ID for the Pages project.
+
+The workflow sets the Direct Upload project's production branch to `master` before deployment. Direct Upload projects cannot be converted to Cloudflare's built-in Git integration later; this workflow is the CI/CD path for this project. For a manual local deploy, authenticate with `npx wrangler login` and run `npm run deploy`.
 
 ## Research and accuracy
 
