@@ -3,7 +3,7 @@ title: "About this guide"
 layout: "about"
 ---
 
-This directory is maintained as a Hugo site. Each clinic, voucher, or assistance program has its own Markdown file in `content/resources/`. Structured front matter makes each record searchable and keeps the cards, detail pages, and source links consistent.
+This directory is maintained as a Hugo site. Each clinic, voucher, or assistance program has its own Markdown file in `content/resources/`. Structured front matter makes each record searchable and keeps the cards, detail pages, and source links consistent. You can suggest updates by [opening an issue or pull request in the public GitHub repository](https://github.com/yuhuishi-convect/bay-area-community-cat-care).
 
 ## Add a clinic or program
 
