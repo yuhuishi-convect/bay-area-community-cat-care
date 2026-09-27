@@ -1,6 +1,7 @@
 (() => {
   const resources = window.directoryResources || [];
   const zipCountyLookup = window.zipCountyLookup || {};
+  const t = (key, values) => window.siteI18n ? window.siteI18n.t(key, values) : key;
   const form = document.querySelector('#search-form');
   const locationInput = document.querySelector('#location');
   const suggestions = document.querySelector('#location-suggestions');
@@ -23,16 +24,16 @@
   const clean = value => (value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ county/g, '').replace(/[^a-z0-9 ]/g, ' ').trim();
   const areaNames = [...new Set(resources.flatMap(item => item.counties || (item.county ? [item.county] : [])))].sort((a,b) => a.localeCompare(b));
   const places = new Map();
-  areaNames.forEach(county => places.set(clean(county), {label: `${county} County`, value: county, kind: 'County'}));
+  areaNames.forEach(county => places.set(clean(county), {label: `${county} ${t('county')}`, value: county, kind: t('county')}));
   resources.flatMap(item => item.cities || []).forEach(city => {
-    if (!places.has(clean(city))) places.set(clean(city), {label: city, value: city, kind: 'City'});
+    if (!places.has(clean(city))) places.set(clean(city), {label: city, value: city, kind: t('city')});
   });
   Object.entries(aliases).forEach(([county, names]) => names.forEach(name => {
     const display = name.replace(/\b\w/g, letter => letter.toUpperCase());
-    if (!places.has(clean(name))) places.set(clean(name), {label: display, value: name, kind: name === county ? 'County' : 'City'});
+    if (!places.has(clean(name))) places.set(clean(name), {label: display, value: name, kind: name === county ? t('county') : t('city')});
   }));
   Object.keys(zipCountyLookup).forEach(zip => places.set(zip, {
-    label: `${zip} · ${zipCountyLookup[zip].join(' / ')} County area`, value: zip, kind: 'ZIP code'
+    label: `${zip} · ${zipCountyLookup[zip].join(' / ')} ${t('county')} area`, value: zip, kind: t('zipCode')
   }));
   const placeOptions = [...places.values()];
   let activeSuggestion = -1;
@@ -75,21 +76,21 @@
   }
   function card(item) {
     const isTnr = ['TNR','Voucher'].includes(item.type);
-    const badge = isTnr ? 'Community cats' : 'Owned cats';
-    const status = item.status ? `<span class="status-pill ${item.status === 'paused' ? 'paused' : ''}">${esc(item.status === 'paused' ? 'Temporarily paused' : item.status)}</span>` : '';
+    const badge = isTnr ? t('communityCatBadge') : t('ownedCatBadge');
+    const status = item.status ? `<span class="status-pill ${item.status === 'paused' ? 'paused' : ''}">${esc(item.status === 'paused' ? t('paused') : item.status)}</span>` : '';
     const cityTags = (item.cities || []).slice(0, 3).map(x => `<span>${esc(x)}</span>`).join('');
-    const countyTags = (item.counties || []).map(x => `<span>${esc(x)} County</span>`).join('');
+    const countyTags = (item.counties || []).map(x => `<span>${esc(x)} ${esc(t('county'))}</span>`).join('');
     const bookUrl = item.bookingUrl || item.website || item.sourceUrl;
-    const buttonText = item.bookingUrl ? 'Booking details' : 'Visit program';
+    const buttonText = item.bookingUrl ? t('bookingDetails') : t('visitProgram');
     return `<article class="resource-card ${item.featured ? 'featured-card' : ''}">
       <div class="card-top"><span class="kind-pill ${isTnr ? 'kind-tnr' : 'kind-owned'}"><i></i>${badge}</span>${status}</div>
       <h3><a class="card-title-link" href="${esc(item.permalink)}">${esc(item.name)}</a></h3><p class="card-location">${esc(item.location || [...(item.cities || []), ...(item.counties || []).map(x => x + ' County')].join(' · '))}</p>
-      <div class="card-cost"><span class="cost-label">TYPICAL COST</span><strong>${esc(item.cost)}</strong></div>
+      <div class="card-cost"><span class="cost-label">${esc(t('costLabel'))}</span><strong>${esc(item.cost)}</strong></div>
       <p class="card-detail">${esc(item.details)}</p>
-      <div class="card-info"><div><span class="info-icon">↗</span><p><b>How to book</b>${esc(item.booking)}</p></div><div><span class="info-icon">◎</span><p><b>Who can use it</b>${esc(item.eligibility)}</p></div></div>
+      <div class="card-info"><div><span class="info-icon">↗</span><p><b>${esc(t('howToBook'))}</b>${esc(item.booking)}</p></div><div><span class="info-icon">◎</span><p><b>${esc(t('whoCanUse'))}</b>${esc(item.eligibility)}</p></div></div>
       <div class="card-tags">${countyTags}${cityTags}</div>
-      <div class="card-actions"><a class="primary-link" href="${esc(bookUrl)}" target="_blank" rel="noopener">${buttonText} <span>↗</span></a><a class="source-link" href="${esc(item.sourceUrl || item.website)}" target="_blank" rel="noopener">Source <span>↗</span></a></div>
-      <p class="verified">Checked ${esc(item.updated || 'recently')} · verify current availability</p>
+      <div class="card-actions"><a class="primary-link" href="${esc(bookUrl)}" target="_blank" rel="noopener">${esc(buttonText)} <span>↗</span></a><a class="source-link" href="${esc(item.sourceUrl || item.website)}" target="_blank" rel="noopener">${esc(t('source'))} <span>↗</span></a></div>
+      <p class="verified">${esc(t('checked'))} ${esc(item.updated || 'recently')} · ${esc(t('verifyAvailability'))}</p>
     </article>`;
   }
   function render() {
@@ -106,15 +107,15 @@
     };
     const results = resources.filter(matches).sort((a,b) => localScore(b) - localScore(a) || Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.name.localeCompare(b.name));
     grid.innerHTML = results.map(card).join('');
-    count.textContent = `${results.length} ${results.length === 1 ? 'program' : 'programs'}`;
+    count.textContent = t(results.length === 1 ? 'programOne' : 'programMany', {count: results.length});
     empty.hidden = results.length > 0;
     grid.hidden = results.length === 0;
     const zip = String(locationInput.value).trim();
     const zipCounties = /^\d{5}$/.test(zip) ? zipCountyLookup[zip] : null;
     const selected = countySelect.value || locationInput.value;
-    if (zipCounties) note.textContent = `Showing programs serving ${zipCounties.map(county => `${county} County`).join(' / ')} areas near ${zip}. ZIP-to-county lookup is approximate; confirm service eligibility with each provider.`;
-    else if (/^\d{5}$/.test(zip)) note.textContent = `No Bay Area ZIP code match for ${zip}. Try a nearby city or county.`;
-    else note.textContent = selected ? `Showing options for ${selected}. Some programs serve nearby cities too; check eligibility before booking.` : 'Browse programs across all listed areas.';
+    if (zipCounties) note.textContent = t('zipShowing', {counties: zipCounties.map(county => `${county} ${t('county')}`).join(' / '), zip});
+    else if (/^\d{5}$/.test(zip)) note.textContent = t('zipMissing', {zip});
+    else note.textContent = selected ? t('showingFor', {area: selected}) : t('browseAll');
   }
   function hideSuggestions() {
     suggestions.hidden = true;
@@ -130,7 +131,7 @@
       .sort((a, b) => Number(clean(a.value).startsWith(query)) * -1 - Number(clean(b.value).startsWith(query)) * -1 || a.label.localeCompare(b.label))
       .slice(0, 7);
     if (!found.length) return hideSuggestions();
-    suggestions.innerHTML = found.map((place, index) => `<li id="location-option-${index}" role="option" aria-selected="false" data-value="${esc(place.value)}"><span>${esc(place.label)}</span><small>${place.kind}</small></li>`).join('');
+    suggestions.innerHTML = found.map((place, index) => `<li id="location-option-${index}" role="option" aria-selected="false" data-value="${esc(place.value)}"><span>${esc(place.label)}</span><small>${esc(place.kind)}</small></li>`).join('');
     suggestions.hidden = false;
     locationInput.setAttribute('aria-expanded', 'true');
     suggestions.querySelectorAll('[role="option"]').forEach(option => option.addEventListener('mousedown', event => event.preventDefault()));
@@ -158,6 +159,16 @@
   });
   locationInput.addEventListener('blur', () => setTimeout(hideSuggestions, 120));
   countySelect.addEventListener('change', render);
+  document.addEventListener('site-language-change', () => {
+    places.clear();
+    areaNames.forEach(county => places.set(clean(county), {label: `${county} ${t('county')}`, value: county, kind: t('county')}));
+    resources.flatMap(item => item.cities || []).forEach(city => { if (!places.has(clean(city))) places.set(clean(city), {label: city, value: city, kind: t('city')}); });
+    Object.entries(aliases).forEach(([county, names]) => names.forEach(name => { const display = name.replace(/\b\w/g, letter => letter.toUpperCase()); if (!places.has(clean(name))) places.set(clean(name), {label: display, value: name, kind: name === county ? t('county') : t('city')}); }));
+    Object.keys(zipCountyLookup).forEach(zip => places.set(zip, {label: `${zip} · ${zipCountyLookup[zip].join(' / ')} ${t('county')} area`, value: zip, kind: t('zipCode')}));
+    placeOptions.splice(0, placeOptions.length, ...places.values());
+    if (countySelect.options.length > 1) [...countySelect.options].slice(1).forEach(option => { option.textContent = `${option.value} ${t('county')}`; });
+    render();
+  });
   document.querySelectorAll('.filter-chip').forEach(button => button.addEventListener('click', () => {
     mode = button.dataset.filter;
     document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.toggle('active', chip === button));

@@ -8,6 +8,10 @@ Each listing is a Markdown file under `content/resources/`. Copy an existing fil
 
 The site is static: content changes are reviewed as ordinary source changes and published with the next Cloudflare Pages build. No visitor submissions or server database are involved.
 
+## Languages
+
+The interface supports English, Spanish, and Simplified Chinese with a browser-persisted language selector; no visitor language choice is sent to a server. Add or revise UI strings in `assets/js/i18n.js` and mark template strings with `data-i18n` (or `data-i18n-placeholder`). Verified provider listing text remains in its source language unless a translation is separately reviewed; booking instructions, prices, and eligibility should never be machine-translated without review.
+
 The search also accepts five-digit ZIP codes. Its bundled `data/zip-counties.json` is generated from the U.S. Census Bureau's ZCTA-to-county relationship data with `python3 scripts/build_zip_counties.py`. ZIP/ZCTA geography is approximate; confirm a provider's service area directly. See `/about/` for adding a county to the ZIP lookup.
 
 ## Local preview

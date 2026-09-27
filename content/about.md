@@ -5,6 +5,8 @@ layout: "about"
 
 This directory is maintained as a Hugo site. Each clinic, voucher, or assistance program has its own Markdown file in `content/resources/`. Structured front matter makes each record searchable and keeps the cards, detail pages, and source links consistent. You can suggest updates by [opening an issue or pull request in the public GitHub repository](https://github.com/yuhuishi-convect/bay-area-community-cat-care).
 
+The interface is available in English, Spanish, and Simplified Chinese. UI translations live in `assets/js/i18n.js`; add a message key there for each language when introducing new interface text, and add `data-i18n="keyName"` to static template text. Provider names, costs, eligibility, and booking information stay in the verified source language unless a reviewed translation is added, so the directory clearly notes that some provider details remain in English.
+
 ## Add a clinic or program
 
 Copy a similar file from `content/resources/`, use a short unique filename such as `city-clinic-tnr.md`, and fill in the YAML fields at the top:
