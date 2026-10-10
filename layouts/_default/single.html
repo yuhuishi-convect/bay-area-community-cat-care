@@ -2,9 +2,9 @@
 <html lang="en">
   {{ partial "head.html" . }}
   <body>
-    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><div class="topbar-tools"><a class="nav-link" href="/#finder" data-i18n="findProgram">Find a program <span aria-hidden="true">↗</span></a><label class="language-label"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="ui-language" aria-label="Language" data-i18n-aria-label="languageLabel"><option value="en">English</option><option value="es">Español</option><option value="zh-CN">简体中文</option></select></label></div></header>
+    <header class="topbar"><a class="brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><div class="topbar-tools"><a class="nav-link" href="{{ "" | relURL }}#finder" data-i18n="findProgram">Find a program <span aria-hidden="true">↗</span></a><label class="language-label"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="ui-language" aria-label="Language" data-i18n-aria-label="languageLabel"><option value="en">English</option><option value="es">Español</option><option value="zh-CN">简体中文</option></select></label></div></header>
     <main class="detail-page">
-      <a class="back-link" href="/#finder">← <span data-i18n="backDirectory">Back to the directory</span></a>
+      <a class="back-link" href="{{ "" | relURL }}#finder">← <span data-i18n="backDirectory">Back to the directory</span></a>
       <p class="eyebrow muted">{{ .Params.type }} · {{ delimit .Params.counties ", " }} COUNTY</p>
       <h1>{{ .Title }}</h1>
       <p class="detail-location">{{ .Params.location }}</p>
@@ -20,6 +20,6 @@
       <p class="detail-note" data-i18n="detailNote">Fees, service area, and appointment availability can change. Please confirm current instructions before trapping or traveling.</p>
       <p class="language-note" data-i18n="sourceLanguageNote">Provider listings are displayed in their source language. Use the linked provider page or ask someone you trust for translation help.</p>
     </main>
-    <footer><a class="brand footer-brand" href="/"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Made for the humans who show up for cats.</span><a href="/about/"><span data-i18n="aboutGuide">About this guide</span> ↗</a></footer>
+    <footer><a class="brand footer-brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Made for the humans who show up for cats.</span><a href="{{ "about/" | relURL }}"><span data-i18n="aboutGuide">About this guide</span> ↗</a></footer>
   </body>
 </html>
