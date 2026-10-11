@@ -3,7 +3,8 @@ title: "Oakland Animal Services / Friends of OAS assistance"
 county: Alameda
 counties: [Alameda]
 cities: [Oakland]
-type: Owned-cat clinic
+type: Owned-cat assistance
+services: ["tnr-help"]
 cost: "Free for eligible Oakland residents"
 booking: "Complete the request form linked from the Friends of OAS assistance page. Current wait is about 2–3 months."
 eligibility: "Oakland residents needing help with spay/neuter for their pet. Ask whether a community cat case can be accommodated before trapping."

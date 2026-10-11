@@ -4,6 +4,7 @@ county: Santa Clara
 counties: [Santa Clara]
 cities: [San Jose, Saratoga, Cupertino, Milpitas]
 type: TNR
+services: ["surgery", "trap-loans"]
 cost: "Free"
 booking: "Submit the online TNR request form from the city program page and wait for a confirmation email before trapping."
 eligibility: "Community cats trapped in San José, Saratoga, Cupertino, or Milpitas. Limit two cats per request; appointment and ID required."

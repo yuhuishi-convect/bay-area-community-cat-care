@@ -10,6 +10,7 @@
   const count = document.querySelector('#result-count');
   const note = document.querySelector('#results-note');
   const empty = document.querySelector('#empty-state');
+  const includeOwned = document.querySelector('#include-owned');
   const aliases = {
     'san francisco': ['san francisco', 'sf'],
     'contra costa': ['contra costa', 'richmond', 'san pablo', 'el cerrito', 'pinole', 'walnut creek', 'concord', 'pleasant hill', 'martinez', 'danville', 'san ramon', 'antioch', 'pittsburg', 'brentwood', 'oakley'],
@@ -70,25 +71,29 @@
     const selected = countySelect.value;
     if (selected && !locationMatch(item, selected)) return false;
     if (!locationMatch(item, query)) return false;
-    if (mode === 'tnr' && !['TNR','Voucher'].includes(item.type)) return false;
-    if (mode === 'owned' && item.type !== 'Owned-cat clinic') return false;
+    if (!includeOwned.checked && item.type.startsWith('Owned-cat')) return false;
+    if (mode === 'help' && !(item.services || []).some(service => ['tnr-help','trap-loans','vouchers'].includes(service))) return false;
+    if (mode === 'clinic' && !(item.services || []).includes('surgery')) return false;
     return true;
   }
   function card(item) {
     const isTnr = ['TNR','Voucher'].includes(item.type);
     const badge = isTnr ? t('communityCatBadge') : t('ownedCatBadge');
-    const status = item.status ? `<span class="status-pill ${item.status === 'paused' ? 'paused' : ''}">${esc(item.status === 'paused' ? t('paused') : item.status)}</span>` : '';
+    const status = item.status ? `<span class="status-pill ${item.status === 'paused' ? 'paused' : ''}">${esc(item.status === 'paused' ? t('paused') : item.status === 'limited' ? t('limited') : item.status)}</span>` : '';
     const cityTags = (item.cities || []).slice(0, 3).map(x => `<span>${esc(x)}</span>`).join('');
     const countyTags = (item.counties || []).map(x => `<span>${esc(x)} ${esc(t('county'))}</span>`).join('');
     const bookUrl = item.bookingUrl || item.website || item.sourceUrl;
-    const buttonText = item.bookingUrl ? t('bookingDetails') : t('visitProgram');
+    const isClinic = (item.services || []).includes('surgery');
+    const buttonText = item.status === 'paused' ? t('checkStatus') : isClinic ? t('bookingDetails') : t('requestHelp');
+    const serviceTags = (item.services || []).map(service => `<span>${esc(t({'surgery':'surgeryClinics','tnr-help':'localSupport','trap-loans':'trapLoans','vouchers':'funding'}[service]))}</span>`).join('');
     return `<article class="resource-card ${item.featured ? 'featured-card' : ''}">
       <div class="card-top"><span class="kind-pill ${isTnr ? 'kind-tnr' : 'kind-owned'}"><i></i>${badge}</span>${status}</div>
       <h3><a class="card-title-link" href="${esc(item.permalink)}">${esc(item.name)}</a></h3><p class="card-location">${esc(item.location || [...(item.cities || []), ...(item.counties || []).map(x => x + ' County')].join(' · '))}</p>
       <div class="card-cost"><span class="cost-label">${esc(t('costLabel'))}</span><strong>${esc(item.cost)}</strong></div>
       <p class="card-detail">${esc(item.details)}</p>
-      <div class="card-info"><div><span class="info-icon">↗</span><p><b>${esc(t('howToBook'))}</b>${esc(item.booking)}</p></div><div><span class="info-icon">◎</span><p><b>${esc(t('whoCanUse'))}</b>${esc(item.eligibility)}</p></div></div>
-      <div class="card-tags">${countyTags}${cityTags}</div>
+      <div class="service-tags">${serviceTags}</div>
+      <details class="card-more"><summary>${esc(t(isClinic ? 'bookingEligibility' : 'helpEligibility'))}</summary><div class="card-info"><div><span class="info-icon">↗</span><p><b>${esc(t(isClinic ? 'howToBook' : 'requestHelp'))}</b>${esc(item.booking)}</p></div><div><span class="info-icon">◎</span><p><b>${esc(t('whoCanUse'))}</b>${esc(item.eligibility)}</p></div></div>
+      </details><div class="card-tags">${countyTags}${cityTags}</div>
       <div class="card-actions"><a class="primary-link" href="${esc(bookUrl)}" target="_blank" rel="noopener">${esc(buttonText)} <span>↗</span></a><a class="source-link" href="${esc(item.sourceUrl || item.website)}" target="_blank" rel="noopener">${esc(t('source'))} <span>↗</span></a></div>
       <p class="verified">${esc(t('checked'))} ${esc(item.updated || 'recently')} · ${esc(t('verifyAvailability'))}</p>
     </article>`;
@@ -105,7 +110,7 @@
       if (selected && counties.includes(selected)) return 1;
       return 0;
     };
-    const results = resources.filter(matches).sort((a,b) => localScore(b) - localScore(a) || Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.name.localeCompare(b.name));
+    const results = resources.filter(matches).sort((a,b) => Number(a.status === 'paused') - Number(b.status === 'paused') || localScore(b) - localScore(a) || Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.name.localeCompare(b.name));
     grid.innerHTML = results.map(card).join('');
     count.textContent = t(results.length === 1 ? 'programOne' : 'programMany', {count: results.length});
     empty.hidden = results.length > 0;
@@ -149,8 +154,8 @@
     options.forEach((option, i) => option.setAttribute('aria-selected', String(i === activeSuggestion)));
     locationInput.setAttribute('aria-activedescendant', options[activeSuggestion].id);
   }
-  form.addEventListener('submit', event => { event.preventDefault(); render(); document.querySelector('#finder').scrollIntoView({behavior:'smooth', block:'start'}); });
-  locationInput.addEventListener('input', () => { render(); showSuggestions(); });
+  form.addEventListener('submit', event => { event.preventDefault(); hideSuggestions(); render(); document.querySelector('#finder').scrollIntoView({behavior:'smooth', block:'start'}); });
+  locationInput.addEventListener('input', () => { countySelect.value = ''; render(); showSuggestions(); });
   locationInput.addEventListener('keydown', event => {
     if (event.key === 'ArrowDown' && !suggestions.hidden) { event.preventDefault(); setActiveSuggestion(activeSuggestion + 1); }
     else if (event.key === 'ArrowUp' && !suggestions.hidden) { event.preventDefault(); setActiveSuggestion(activeSuggestion < 0 ? suggestions.children.length - 1 : activeSuggestion - 1); }
@@ -158,7 +163,8 @@
     else if (event.key === 'Escape') hideSuggestions();
   });
   locationInput.addEventListener('blur', () => setTimeout(hideSuggestions, 120));
-  countySelect.addEventListener('change', render);
+  countySelect.addEventListener('change', () => { locationInput.value = ''; hideSuggestions(); render(); });
+  includeOwned.addEventListener('change', render);
   document.addEventListener('site-language-change', () => {
     places.clear();
     areaNames.forEach(county => places.set(clean(county), {label: `${county} ${t('county')}`, value: county, kind: t('county')}));
@@ -169,13 +175,23 @@
     if (countySelect.options.length > 1) [...countySelect.options].slice(1).forEach(option => { option.textContent = `${option.value} ${t('county')}`; });
     render();
   });
-  document.querySelectorAll('.filter-chip').forEach(button => button.addEventListener('click', () => {
-    mode = button.dataset.filter;
-    document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.toggle('active', chip === button));
+  function setMode(nextMode) {
+    mode = ['all','help','clinic'].includes(nextMode) ? nextMode : 'all';
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      const selected = chip.dataset.filter === mode;
+      chip.classList.toggle('active', selected);
+      chip.setAttribute('aria-pressed', String(selected));
+    });
     render();
-  }));
-  document.querySelector('#clear-search').addEventListener('click', () => { locationInput.value = ''; countySelect.value = ''; mode = 'all'; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.toggle('active', chip.dataset.filter === 'all')); render(); });
+  }
+  document.querySelectorAll('.filter-chip').forEach(button => button.addEventListener('click', () => setMode(button.dataset.filter)));
+  document.querySelectorAll('[data-journey]').forEach(link => link.addEventListener('click', () => setMode(link.dataset.journey)));
+  document.querySelector('#clear-search').addEventListener('click', () => {
+    locationInput.value = ''; countySelect.value = ''; includeOwned.checked = false; hideSuggestions(); setMode('all');
+  });
   const params = new URLSearchParams(location.search);
   if (params.has('q')) locationInput.value = params.get('q');
-  render();
+  if (params.has('county') && areaNames.includes(params.get('county'))) countySelect.value = params.get('county');
+  if (params.get('owned') === 'true') includeOwned.checked = true;
+  setMode(params.get('service'));
 })();

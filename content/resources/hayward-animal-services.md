@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [Hayward]
 type: TNR
+services: ["surgery"]
 cost: "Ask the bureau about current cost and openings"
 booking: "Call (510) 293-7200 or email animal.services@hayward-ca.gov to ask about TNR dates and intake."
 eligibility: "The city TNR program is for cats trapped in Hayward; confirm residency and current requirements when you contact the bureau."

@@ -4,6 +4,7 @@ county: Marin
 counties: [Marin]
 cities: [Novato, San Rafael, Mill Valley, Marin County]
 type: TNR
+services: ["surgery"]
 countywide: true
 cost: "$75 per cat"
 booking: "Call Marin Humane at (415) 883-4621 to arrange service and confirm intake instructions."

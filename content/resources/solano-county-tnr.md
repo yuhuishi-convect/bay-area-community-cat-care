@@ -4,6 +4,7 @@ county: Solano
 counties: [Solano]
 cities: [Fairfield, Vacaville, Vallejo, Suisun City, Dixon]
 type: TNR
+services: ["surgery"]
 countywide: true
 cost: "County fee varies; no appointments currently listed"
 booking: "Call (707) 784-4720 or email AnimalCareClinic@SolanoCounty.gov before trapping."
@@ -15,4 +16,5 @@ source_url: "https://app.solanocounty.gov/depts/sheriff/animalcare/acac.asp"
 verified: "Sep 25, 2026"
 location: "Fairfield"
 phone: "707-784-4720"
+status: paused
 ---

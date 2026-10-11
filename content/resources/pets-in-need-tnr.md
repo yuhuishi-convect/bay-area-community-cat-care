@@ -4,6 +4,7 @@ county: Santa Clara
 counties: [Santa Clara, San Mateo]
 cities: [Palo Alto, Los Altos, Los Altos Hills, East Palo Alto, Redwood City]
 type: TNR
+services: ["surgery"]
 cost: "$50 per cat (confirm current package)"
 booking: "Email pa-medical@petsinneed.org to ask about the Palo Alto community-cat package and appointments."
 eligibility: "Community cats in Palo Alto, Los Altos, or Los Altos Hills; confirm residency and service boundaries when booking."

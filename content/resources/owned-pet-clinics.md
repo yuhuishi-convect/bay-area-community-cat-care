@@ -4,6 +4,7 @@ county: Contra Costa
 counties: [Contra Costa, Alameda]
 cities: [Pinole, Berkeley, Oakland, Albany, Emeryville, Piedmont, Alameda, San Leandro, Hayward, Fremont, Union City, Livermore, Pleasanton]
 type: Owned-cat clinic
+services: ["surgery"]
 cost: "Cat neuter $150 / spay $175"
 booking: "Submit an appointment request online. A date is confirmed after staff contact you and receive a $30 deposit per cat."
 eligibility: "Owned companion cats for Bay Area residents; no feral cats, managed colonies, or rescue groups. One to three pets per household per year."

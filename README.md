@@ -1,10 +1,10 @@
-# Bay Area Community Cat Care
+# Bay Area TNR Resource
 
 A Hugo static site that helps people find TNR (trap-neuter-return) and low-cost spay/neuter programs by Bay Area city or county.
 
 ## Add or update a resource
 
-Each listing is a Markdown file under `content/resources/`. Copy an existing file and edit its YAML front matter. The visitor-facing [guide at `/about/`](content/about.md) explains every field, adding a clinic, adding a city or county, and linking a voucher with its clinic. In short: `counties` and `cities` power search, `type` powers service filters, and `booking_url` / `source_url` provide the booking and verification links. The county menu is generated from the content. For a new county, also add its city aliases in `assets/js/site.js`; set `countywide: true` only for providers that accept cats across the whole county. Optional `related: [resource-slug]` links connected records, such as a voucher and participating clinic.
+Each listing is a Markdown file under `content/resources/`. Copy an existing file and edit its YAML front matter. The visitor-facing [guide at `/about/`](content/about.md) explains every field, adding a clinic, adding a city or county, and linking a voucher with its clinic. In short: `counties` and `cities` power search, `services` powers help/clinic filters and `type` identifies community- versus owned-cat options, and `booking_url` / `source_url` provide the booking and verification links. The county menu is generated from the content. For a new county, also add its city aliases in `assets/js/site.js`; set `countywide: true` only for providers that accept cats across the whole county. Optional `related: [resource-slug]` links connected records, such as a voucher and participating clinic.
 
 The site is static: content changes are reviewed as ordinary source changes and published with the next GitHub Pages build. No visitor submissions or server database are involved.
 
@@ -28,4 +28,8 @@ The production `baseURL` in `hugo.toml` includes the repository path. Internal n
 
 ## Research and accuracy
 
-The directory-wide last research date is recorded in `hugo.toml` (`params.last_resource_research`) and shown on the site footer; update it whenever the research pass is refreshed. Listings were reviewed from program and government sources on September 25–26, 2026. Each listing links to its primary source. Prices, capacity, eligibility, and booking windows can change; the source link is authoritative and visitors should confirm current details before trapping or traveling. `content/resources/` is the maintainable directory source. See [RESEARCH.md](RESEARCH.md) for the source ledger and coverage notes.
+The directory-wide coverage-review date is recorded in `hugo.toml` (`params.last_resource_research`) and shown on the site footer; update it whenever the research pass is refreshed. The initial listings were reviewed September 25–26, 2026. An October 11, 2026 coverage pass added 23 listings and rechecked selected fees and availability. The directory now has 56 listings across nine counties. Each record retains its own source-check date. Each listing links to its primary source. Prices, capacity, eligibility, and booking windows can change; the source link is authoritative and visitors should confirm current details before trapping or traveling. `content/resources/` is the maintainable directory source. See [RESEARCH.md](RESEARCH.md) for the source ledger and coverage notes.
+
+## Visitor paths
+
+The site centers on Learn TNR (`/learn-tnr/`), Get local help, and Find surgery clinics. Location and `services` determine the finder results; owned-cat records are optional. Supported service values are `surgery`, `tnr-help`, `trap-loans`, and `vouchers`. The county directory (`/resources/`) renders real HTML links to every listing, independent of JavaScript. Google verification is in the shared head template, with canonical URLs and descriptive titles on detail pages.

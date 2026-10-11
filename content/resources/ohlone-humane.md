@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [Fremont, Newark, Union City]
 type: Voucher
+services: ["vouchers"]
 cost: "$60 copay per cat with approved voucher"
 booking: "Schedule with a partner clinic first, then request the voucher 3–5 days ahead. Do not trap until both are confirmed."
 eligibility: "Community cats in Fremont, Newark, or Union City. Trapping help is available by request, subject to a waitlist."

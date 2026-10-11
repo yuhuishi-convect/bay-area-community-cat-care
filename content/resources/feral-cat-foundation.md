@@ -4,6 +4,7 @@ county: Contra Costa
 counties: [Alameda, Contra Costa]
 cities: [Alameda, Oakland, Berkeley, Richmond, Fremont, Walnut Creek, Concord, Danville, San Ramon, Antioch, Pittsburg, Brentwood, Oakley]
 type: TNR
+services: ["tnr-help"]
 countywide: true
 cost: "Contact for current assistance and costs; none published"
 booking: "Call (925) 829-9098 or email feralhelp@feralcatfoundation.org to ask about TNR, colony-care help, and current referral options."

@@ -4,6 +4,7 @@ county: Napa
 counties: [Napa]
 cities: [Napa, American Canyon, St. Helena, Calistoga]
 type: Owned-cat clinic
+services: ["surgery"]
 cost: "Cat neuter $100 / spay $160; income-eligible $75"
 booking: "Call (707) 252-7442 or submit the online appointment request. Appointments may be booked months in advance."
 eligibility: "Napa County residents with owned cats; income-eligible tier requires prior approval and documentation."

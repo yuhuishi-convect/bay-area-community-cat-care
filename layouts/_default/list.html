@@ -1,5 +1,35 @@
 <!doctype html>
 <html lang="en">
   {{ partial "head.html" . }}
-  <body><header class="topbar"><a class="brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a></header><main class="detail-page"><a class="back-link" href="{{ "" | relURL }}">← Home</a><h1>{{ .Title }}</h1><p>Browse the directory from the home page to filter by location and service type.</p></main><footer><a class="brand footer-brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Made for the humans who show up for cats.</span><a href="{{ "about/" | relURL }}">About this guide ↗</a></footer></body>
+  <body>
+    {{ partial "header.html" . }}
+    <main class="detail-page county-index">
+      <a class="back-link" href="{{ "" | relURL }}#finder">← <span data-i18n="backDirectory">Back to the directory</span></a>
+      <p class="eyebrow muted" data-i18n="directoryEyebrow">YOUR LOCAL TNR DIRECTORY</p>
+      <h1 data-i18n="browseCounty">Browse every resource by county</h1>
+      <p data-i18n="countyIndexIntro">Start with the county where the cats live. Check each listing’s eligibility; a provider’s location does not mean it serves every nearby city.</p>
+      {{ $resources := where .Site.RegularPages "Section" "resources" }}
+      {{ $counties := slice }}{{ range $resources }}{{ range .Params.counties }}{{ $counties = $counties | append . }}{{ end }}{{ end }}
+      <nav class="county-jumps" aria-label="Counties">{{ range sort (uniq $counties) }}<a href="#{{ . | urlize }}">{{ . }}</a>{{ end }}</nav>
+      {{ range sort (uniq $counties) }}
+      {{ $county := . }}
+      <section class="county-group" id="{{ . | urlize }}">
+        <h2>{{ . }} <span data-i18n="county">County</span></h2>
+        <p class="county-actions"><a href="{{ "" | relURL }}?county={{ . | urlquery }}&amp;service=help#finder"><span data-i18n="helpTitle">Get local help</span> →</a><a href="{{ "" | relURL }}?county={{ . | urlquery }}&amp;service=clinic#finder"><span data-i18n="surgeryClinics">Surgery clinics</span> →</a></p>
+        <div class="resource-index">
+          {{ range $resources.ByTitle }}{{ if in .Params.counties $county }}
+          <a href="{{ .RelPermalink }}">
+            <p class="index-audience">{{ if hasPrefix .Params.type "Owned-cat" }}<span data-i18n="ownedCatBadge">Owned cats</span>{{ else }}<span data-i18n="communityCatBadge">Community cats</span>{{ end }}{{ if eq .Params.status "paused" }} · <span data-i18n="paused">Temporarily paused</span>{{ else if eq .Params.status "limited" }} · <span data-i18n="limited">Limited access</span>{{ end }}</p>
+            <h3>{{ .Title }} <span aria-hidden="true">↗</span></h3>
+            {{ partial "services.html" . }}
+            <p>{{ .Params.location }}</p><p>{{ .Params.cost }}</p>
+          </a>
+          {{ end }}{{ end }}
+        </div>
+      </section>
+      {{ end }}
+      <p class="language-note" data-i18n="providerLanguageNote">Directory navigation is translated; provider names, prices, eligibility, and booking details are preserved from source pages and may be in English. Confirm directly with each provider.</p>
+    </main>
+    {{ partial "footer.html" . }}
+  </body>
 </html>

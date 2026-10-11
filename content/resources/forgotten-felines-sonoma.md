@@ -4,6 +4,7 @@ county: Sonoma
 counties: [Sonoma]
 cities: [Santa Rosa, Sonoma County]
 type: TNR
+services: ["surgery", "tnr-help"]
 countywide: true
 cost: "$50 requested donation per cat"
 booking: "Call (707) 576-7999 on weekdays or submit the online assistance form. No walk-ins; contact them before trapping."

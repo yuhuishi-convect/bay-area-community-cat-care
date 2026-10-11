@@ -1,0 +1,8 @@
+<div class="service-tags">
+  {{ range .Params.services }}
+    {{ if eq . "surgery" }}<span data-i18n="surgeryClinics">Surgery clinics</span>{{ end }}
+    {{ if eq . "tnr-help" }}<span data-i18n="localSupport">Local support</span>{{ end }}
+    {{ if eq . "trap-loans" }}<span data-i18n="trapLoans">Trap loans</span>{{ end }}
+    {{ if eq . "vouchers" }}<span data-i18n="funding">Funding / vouchers</span>{{ end }}
+  {{ end }}
+</div>

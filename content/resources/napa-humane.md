@@ -4,6 +4,7 @@ county: Napa
 counties: [Napa]
 cities: [Napa, American Canyon, St. Helena, Calistoga]
 type: TNR
+services: ["surgery"]
 countywide: true
 cost: "$55 per cat · free with eligible county voucher"
 booking: "Text your name to (707) 500-2903 Monday–Thursday before 11 am. Selected applicants are contacted Friday for the following week."
@@ -12,7 +13,7 @@ details: "TNR is appointment-only. Package includes spay/neuter, ear tip, and ra
 booking_url: "https://napahumane.org/our-work/community-cats/spayneuter-our-services/"
 website: "https://napahumane.org/"
 source_url: "https://napahumane.org/our-work/community-cats/spayneuter-our-services/"
-verified: "Sep 25, 2026"
+verified: "Oct 11, 2026"
 location: "Napa"
 phone: "707-500-2903"
 featured: true

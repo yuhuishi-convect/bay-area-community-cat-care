@@ -5,12 +5,14 @@
   <meta name="description" content="{{ .Site.Params.description }}">
   <meta name="theme-color" content="#f8f6ef">
   <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
-  <title>{{ .Site.Title }}</title>
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
   {{ $css := resources.Get "css/site.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ $detailCss := resources.Get "css/details.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $detailCss.RelPermalink }}">
   {{ $cardCss := resources.Get "css/cards.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $cardCss.RelPermalink }}">
   {{ $i18nCss := resources.Get "css/i18n.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $i18nCss.RelPermalink }}">
   {{ $readabilityCss := resources.Get "css/readability.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $readabilityCss.RelPermalink }}">
+  {{ $tnrCss := resources.Get "css/tnr.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $tnrCss.RelPermalink }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">

@@ -4,6 +4,7 @@ county: San Francisco
 counties: [Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Santa Clara, Solano, Sonoma]
 cities: [San Francisco, Bay Area]
 type: TNR
+services: ["surgery", "trap-loans"]
 countywide: true
 cost: "$0 in San Francisco · $50 outside SF"
 booking: "Text (415) 554-3084 to request an appointment. Tue–Sat; drop-off 10 am, pick-up 5 pm."

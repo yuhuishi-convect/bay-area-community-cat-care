@@ -4,14 +4,17 @@ county: Solano
 counties: [Solano]
 cities: [Vallejo]
 type: Voucher
-cost: "$45 flat fee reported for eligible Vallejo residents; confirm current rules"
-booking: "Contact Humane Society of the North Bay about current voucher availability and participating clinic."
+services: ["vouchers"]
+cost: "New spay/neuter voucher applications paused"
+booking: "Check the PB voucher notice or contact vouchers@hsnb.org for updates; there is no announced reopening date."
 eligibility: "Vallejo residents. Feral colony vouchers may require working through a registered nonprofit organization."
-details: "Local resource listings describe a city-funded voucher program for Vallejo residents and registered feral-cat groups. Funding cycles and rules can change; verify directly."
-booking_url: "https://www.hsnb.org/"
+details: "PB 7 funding is nearly exhausted. New spay/neuter and vaccination voucher applications are paused; previously submitted applications without a scheduled or paid appointment are held for future PB 8 funding. Free microchip vouchers remain a separate service."
+booking_url: "https://www.hsnb.org/pb-voucher/"
 website: "https://www.hsnb.org/"
-source_url: "https://www.hsnb.org/"
-verified: "Sep 25, 2026"
+source_url: "https://www.hsnb.org/pb-voucher/"
+verified: "Oct 11, 2026"
 location: "Vallejo"
 phone: "707-645-7905"
+status: "paused"
+related: ["community-cat-advocates", "solano-feral-cat-group"]
 ---

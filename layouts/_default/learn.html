@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "header.html" . }}
+    <main class="detail-page learn-page">
+      <a class="back-link" href="{{ "" | relURL }}">← <span data-i18n="home">Home</span></a>
+      <p class="eyebrow muted" data-i18n="learnEyebrow">START WITH A PLAN</p>
+      <h1 data-i18n="learnHeading">A little preparation.<br><em>A better life outdoors.</em></h1>
+      <p class="learn-lead" data-i18n="learnLead">TNR means trap, neuter, return. Community cats are humanely trapped, spayed or neutered, vaccinated, and ear-tipped, then returned to their original outdoor home after recovery.</p>
+      <p class="education-source"><a href="https://www.alleycat.org/our-work/trap-neuter-return/" target="_blank" rel="noopener">Alley Cat Allies · <span data-i18n="tnrOverview">TNR overview</span> ↗</a></p>
+      <section class="learn-plan">
+        <h2 data-i18n="beforeTrap">Before you trap</h2>
+        <ol class="plan-list">
+          <li><h3 data-i18n="plan1Title">Know the cats and their location</h3><p data-i18n="plan1Text">Count the cats and coordinate with nearby feeders. A friendly cat may be someone’s pet; ask local animal services about checking for an owner.</p></li>
+          <li><h3 data-i18n="plan2Title">Confirm a surgery appointment</h3><p data-i18n="plan2Text">Check the clinic’s service area, cat requirements, total fees, and cancellation rules. Apply for any voucher in the order the program requires.</p><a href="{{ "" | relURL }}?service=clinic#finder"><span data-i18n="clinicTitle">Find surgery clinics</span> →</a></li>
+          <li><h3 data-i18n="plan3Title">Arrange equipment and a helper</h3><p data-i18n="plan3Text">Borrow suitable humane traps and learn how to use them. Plan transport and a safe recovery space before trapping. Volunteers may have waiting lists.</p><a href="{{ "" | relURL }}?service=help#finder"><span data-i18n="helpTitle">Get local help</span> →</a></li>
+          <li><h3 data-i18n="plan4Title">Follow the clinic’s care instructions</h3><p data-i18n="plan4Text">Ask for written feeding, drop-off, recovery, and release instructions. Timing depends on the cat and procedure; ask the veterinary team about kittens or medical concerns.</p></li>
+        </ol>
+        <p class="education-source"><a href="https://bayareacats.org/trapping" target="_blank" rel="noopener">Bay Area Cats · <span data-i18n="localTrappingGuide">Local trapping guide & workshops</span> ↗</a></p>
+      </section>
+      <section class="learn-faq">
+        <h2 data-i18n="commonQuestions">Common questions</h2>
+        <details open><summary data-i18n="earQuestion">What does a tipped ear mean?</summary><p data-i18n="earAnswer">A small, flat cut at the ear tip identifies a cat who has already been spayed or neutered through TNR. Ask a local program before trapping an ear-tipped cat for routine surgery.</p></details>
+        <details><summary data-i18n="returnQuestion">Where do cats go after surgery?</summary><p data-i18n="returnAnswer">After veterinary-approved recovery, return community cats to the place they were trapped. Continue food, water, shelter, and monitoring. Ask an experienced group about special situations rather than relocating a cat yourself.</p></details>
+        <p class="education-source"><a href="https://www.alleycat.org/resources/how-to-help-community-cats-a-step-by-step-guide-to-trap-neuter-return/" target="_blank" rel="noopener">Alley Cat Allies · <span data-i18n="completeGuide">Complete TNR guide</span> ↗</a></p>
+        <details><summary data-i18n="urgentQuestion">What if a cat is sick or injured?</summary><p data-i18n="urgentAnswer">Contact a veterinarian or local animal services promptly for guidance. Routine TNR appointments and volunteer request forms are not emergency services.</p><a href="https://www.alleycat.org/resources-page/how-to-help-sick-injured-cats/" target="_blank" rel="noopener"><span data-i18n="urgentGuide">Sick or injured cat guidance</span> ↗</a></details>
+      </section>
+      <div class="learn-next"><div><p class="eyebrow muted" data-i18n="nextStep">YOUR NEXT STEP</p><h2 data-i18n="localPlan">Make your plan local.</h2><p data-i18n="localPlanText">Eligibility usually depends on where the cats live. Start with their city, county, or ZIP code.</p></div><a class="primary-link" href="{{ "" | relURL }}#finder"><span data-i18n="findProgram">Find a program</span> →</a></div>
+    </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

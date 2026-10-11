@@ -4,6 +4,7 @@ county: Santa Clara
 counties: [Santa Clara]
 cities: [San Jose]
 type: TNR
+services: ["tnr-help", "trap-loans"]
 cost: "Contact for support; surgery fees depend on the clinic"
 booking: "Email tnr@13thstcats.org with the city where cats live and their approximate ages for guidance. Contact them after securing a clinic appointment if you need to borrow a trap."
 eligibility: "People caring for feral/community cats in San Jose and nearby Santa Clara County areas; confirm current support and trap availability."

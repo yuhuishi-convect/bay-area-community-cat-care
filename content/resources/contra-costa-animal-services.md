@@ -4,6 +4,7 @@ county: Contra Costa
 counties: [Contra Costa]
 cities: [Martinez, Concord, Walnut Creek, Richmond, Antioch]
 type: TNR
+services: ["surgery"]
 countywide: true
 cost: "Free TNR surgery and listed basic treatments for eligible county residents"
 booking: "Email spay@asd.cccounty.us or call (925) 608-8400 to request an appointment or waitlist."

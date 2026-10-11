@@ -1,12 +1,12 @@
 # Directory research notes
 
-Reviewed September 25–26, 2026. Listings prioritize official government and service-provider pages. The site marks costs as current published rates or asks visitors to confirm where the organization does not publish a TNR fee. Availability and intake rules can change quickly.
+Initial review September 25–26, 2026; coverage expansion October 11, 2026. Listings prioritize official government and service-provider pages. The site marks costs as current published rates or asks visitors to confirm where the organization does not publish a TNR fee. Availability and intake rules can change quickly.
 
 This research pass also followed referral chains from existing providers and local TNR guides—not just general web searches. Ohlone Humane Society's current assistance and additional-resources pages, Joybound's community-cat directory, Full Circle Cats' clinic list, Bay Area Cats' trapping guide, and 13th Street Cat Rescue's current Santa Clara County guide surfaced candidates. Each candidate was checked against its own service or booking page where available. Added records distinguish clinics from organizations that help with trapping, referrals, or appointment navigation, and avoid claiming a price where none is published.
 
 The user-supplied directory at `/home/yuhuishi/Downloads/Bay Area TNR & Low-Cost Spay_Neuter Directory.txt` was cross-checked as a discovery aid. It surfaced relevant regional providers including ICRA, Ohlone Humane, East Bay SPCA, Valley Humane, Pets In Need, and Peninsula Humane Society. Current provider pages were consulted before adding details. For example, East Bay SPCA currently specifies San Leandro and Livermore city partnerships for community-cat appointments, Ohlone Humane currently requires a clinic appointment before requesting a $60 copay voucher, and Solano County's live clinic page currently says no TNR appointments are available. Listing content follows the live source and notes where program details need confirmation.
 
-## County coverage
+## Initial county coverage
 
 - **San Francisco:** SF SPCA Community Cats — free for cats from San Francisco; $50 for cats from outside the county; appointment request by text. [Program](https://www.sfspca.org/about/impact-results/community-cats/)
 - **Alameda:** Hayward Animal Services — city TNR program; contact the bureau for current slots and cost. [TNR services](https://www.haywardanimals.org/services-4). Oakland residents can ask Friends of Oakland Animal Services about free assistance; the published program is a companion-animal assistance form and wait time is about 2–3 months, while community-cat case support is through local TNR groups. [FOAS](https://friendsoas.org/programs/spay-neuter-assistance/). Animal Fix Clinic provides an explicit TNR package, and Ohlone Humane Society offers Tri-City feral-cat voucher assistance. [Animal Fix](https://animalfixclinic.org/rates), [Ohlone Humane](https://ohlonehumanesociety.org/spay-neuter-assistance/).
@@ -15,7 +15,7 @@ The user-supplied directory at `/home/yuhuishi/Downloads/Bay Area TNR & Low-Cost
 - **Marin:** Marin Humane publishes a $75 feral-cat package; trapping help is available from Marin Friends of Ferals. [Marin Humane](https://marinhumane.org/get-help/veterinary-services/low-cost-services/).
 - **Napa:** Napa Humane TNR is $55 for Napa County residents, appointment lottery by text Monday–Thursday morning, proof of residency required. [Program](https://napahumane.org/our-work/community-cats/spayneuter-our-services/).
 - **Napa vouchers:** County vouchers cover community-cat surgery at Napa Humane, with proof of residency, two-voucher household limit, and a two-month expiration. [County voucher](https://www.napacounty.gov/3163/SpayNeuter-Voucher-Program).
-- **San Mateo:** County vouchers can cover some or all surgery costs; residents request a voucher and then book a participating clinic. Feral-cat voucher cap is two per person/month. Nine Lives says its voucher covers $80 male/$110 female TNR surgery cost. [County vouchers](https://www.smchealth.org/spayneuter-voucher-program), [Nine Lives details](https://www.ninelives.org/voucher-program/).
+- **San Mateo:** County vouchers can cover some or all surgery costs; residents request a voucher and then book a participating clinic. Feral-cat voucher cap is two per person/month. Nine Lives says its voucher covers $80 male/$110 female TNR surgery cost; the October 11 source check confirms remaining copays of $45 male/$15 female. [County vouchers](https://www.smchealth.org/spayneuter-voucher-program), [Nine Lives details](https://www.ninelives.org/voucher-program/).
 - **San Mateo clinic options:** Peninsula Humane Society is listed as a participating county voucher clinic and its feral-cat materials describe a $50 package; call its feral-cat line to verify current details. [County voucher page](https://www.smchealth.org/spayneuter-voucher-program), [PHS clinic information](https://phs-spca.org/wp-content/uploads/2019/08/Feral-Cat_Kitten-Spay_Neuter-Information-2019.pdf).
 - **Santa Clara:** San José Animal Care & Services provides free TNR appointments for cats trapped in San José, Saratoga, Cupertino and Milpitas; online request, traps required, limited appointments. [San José TNR](https://www.sanjoseca.gov/your-government/departments-offices/animal-care-services/services/tnr). Silicon Valley Animal Control Authority serves community cats in Santa Clara, Campbell, Los Gatos, Monte Sereno and Mountain View via request form. [SVACA](https://www.svaca.com/services/community-cats-trapping). County Animal Services lists free-roaming cat information; catchment differs from municipal TNR programs. [County resource](https://animals.santaclaracounty.gov/services-and-resources/free-roaming-cats). HSSV community cat appointments are temporarily paused as of the reviewed page. [HSSV status](https://www.hssv.org/services/community-cat-spay-neuter-program/).
 - **Santa Clara additions:** Ohlone Humane's partner clinics honor $60 copay vouchers for eligible Fremont, Newark, and Union City community cats, after the surgery appointment is confirmed. [Ohlone](https://ohlonehumanesociety.org/spay-neuter-assistance/). Pets In Need is a Palo Alto low-cost clinic; city animal-service referrals list a separate community-cat package, which should be reconfirmed with the clinic. [Clinic](https://www.petsinneed.org/spayneuter/). Mini Cat Town's mobile Spay Shuttle explicitly books feral cats for $125 and includes FVRCP, rabies, and required ear-tip; dates/locations are mobile. [Live booking page](https://square.site/book/L6J120ZXRY7VE/mct-spay-shuttle-san-jose-ca). Bay Area Cats offers TNR help and clinic navigation for Cupertino and Sunnyvale cats, plus a separate pregnant-cat help path across the Bay Area. [Programs](https://bayareacats.org/), [trapping guide](https://bayareacats.org/trapping). 13th Street Cat Rescue provides trap loans, TNR advice, and a current city-by-city clinic referral guide; it is a support organization, not a surgery provider. [TNR](https://www.13thstcats.org/tnr), [clinic guide](https://www.13thstcats.org/spayneuter).
@@ -32,3 +32,57 @@ Major city hubs covered by the location finder include San Francisco; Oakland, B
 ## Important distinctions
 
 This is a referral directory, not a booking service. TNR programs generally require an unowned outdoor cat, humane trap (one cat per trap), ear-tip, and return to the original territory. A friendly cat may be someone's pet; contact the program before trapping. Prices shown here do not imply appointment availability. Always confirm eligibility, dates, total fees, transport requirements, and recovery instructions directly with the provider.
+
+## October 11, 2026 coverage expansion
+
+Added 23 listings (56 total) across the existing nine-county directory. This was a targeted omission and availability pass using provider pages and local referral chains; it is not an inventory of every private veterinary practice. Unchanged records retain their September source-check dates. Clinic operation, assistance, trap loans, and funding now have separate service metadata. An organization that coordinates surgery is not automatically a surgery clinic. Owned-cat services require the optional finder checkbox.
+
+| Added listing | Primary source |
+| --- | --- |
+| Full Circle Cats TNR help + monthly clinic | [Provider page](https://www.fullcirclecats.org/clinic) |
+| Marin Friends of Ferals trapping help | [Provider page](https://www.marinferals.org/mff-mission.html) |
+| Homeless Cat Network TNR advice and trap loans | [Provider page](https://www.homelesscatnetwork.com/what-to-do-when-you-find-a-feral-or-stray-cat.html) |
+| Fat Cat Rescue local TNR assistance | [Provider page](https://www.fatcatrescue.org/petfindershelter.php) |
+| Palo Alto Humane spay/neuter financial aid | [Provider page](https://www.paloaltohumane.org/pet-health-assistance/) |
+| The Dancing Cat humane trap and equipment loans | [Provider page](https://www.thedancingcat.org/communitycats) |
+| Cat Resource Center volunteer assistance network | [Provider page](https://www.catcenter.org/Pages/Requests/Request.asp?Type=Assistance) |
+| Town Cats community-cat guidance and trap rentals | [Provider page](https://www.towncats.org/lost-found-cats/) |
+| Vets in Vans mobile spay/neuter clinic | [Provider page](https://www.vetsinvans.org/spayneuter) |
+| Humane Society of Sonoma County owned-cat clinic | [Provider page](https://humanesocietysoco.org/medical-programs/spay-neuter-clinic/) |
+| Joybound low-cost owned-cat spay/neuter | [Provider page](https://joybound.org/services/spay-and-neuter/) |
+| Wine Country Animal Lovers TNR assistance | [Provider page](https://winecountryanimallovers.org/frequently-asked-questions/) |
+| Whiskers, Tails & Ferals TNR support | [Provider page](https://whiskerstailsandferals.com/donate) |
+| We Care Animal Rescue trap loans and vouchers | [Provider page](https://wecareanimalrescue.org/community-resources/) |
+| Community Cat Advocates volunteer TNR help | [Provider page](https://www.communitycatadvocates.org/) |
+| Solano County Friends of Animals TNR support | [Provider page](https://scfoarescue.org/about/) |
+| Sonoma Cat Rescue / Pets Lifeline TNR partnership | [Provider page](https://www.petslifeline.org/feral-cat-program-tnr) |
+| Pets Lifeline Sonoma Valley owned-cat clinic | [Provider page](https://www.petslifeline.org/spay-neuter-clinic) |
+| Rohnert Park Animal Services Fix-it Clinic | [Provider page](https://rpanimalshelter.org/resources/spay-neuter-information/) |
+| Petaluma Pet Pals owned-pet surgery credit | [Provider page](https://www.petalumapetpals.org/spay-neuter) |
+| Dogwood Animal Rescue affordable spay/neuter help | [Provider page](https://dogwoodanimalrescue.org/about-us/spay-neuter/) |
+| Jameson Humane partner spay/neuter support | [Provider page](https://www.jamesonanimalrescueranch.org/our-work/spay-neuter) |
+| Contra Costa Humane Society monthly SNAP clinic | [Provider page](https://cchumane.org/programs/spayneuter-assistance-program/) |
+
+### Service and availability decisions
+
+- Full Circle Cats’ [current clinic page](https://www.fullcirclecats.org/clinic) announces a monthly clinic with ICRA. Its [help page](https://www.fullcirclecats.org/help) supports free trap loans and volunteer help. The older referral page’s “not a clinic” statement is superseded by the new clinic announcement; fees and access still require confirmation.
+- Pets Lifeline now directs Sonoma Valley TNR requests to [Sonoma Cat and Animal Rescue](https://www.petslifeline.org/feral-cat-program-tnr). The partnership is a help request; the separately listed [owned-cat clinic](https://www.petslifeline.org/spay-neuter-clinic) has residency and income rules. This avoids treating a volunteer request as a confirmed surgery slot.
+- [Jameson Humane](https://www.jamesonanimalrescueranch.org/our-work/spay-neuter) says its mobile veterinary unit is unavailable. Its listing is restricted partner support, not an open mobile clinic.
+- [Dogwood](https://dogwoodanimalrescue.org/about-us/spay-neuter/) supports owned animals in Sonoma County. TNR services elsewhere on that page are outside the Bay Area and are not mapped to Sonoma.
+- [Petaluma Pet Pals](https://www.petalumapetpals.org/spay-neuter) says its voucher program is being revamped, but describes a $50 private-veterinarian credit. That credit is labeled owned-pet assistance and excludes low-cost clinics.
+- [Vets in Vans](https://www.vetsinvans.org/spayneuter) is listed as an owned-cat mobile clinic. Its direct page does not confirm general community-cat intake; locations and rescue/voucher arrangements require confirmation.
+
+### Corrections and rechecks
+
+- [HSNB Vallejo PB vouchers](https://www.hsnb.org/pb-voucher/) are paused for new spay/neuter applications; there is no PB 8 reopening date. The old $45 booking expectation has been removed. Free microchip vouchers are separate.
+- [Nine Lives](https://www.ninelives.org/voucher-program/) now shows the published TNR voucher copays, with vaccines included, rather than only the voucher subsidy amount.
+- [Mini Cat Town’s live booking page](https://square.site/book/L6J120ZXRY7VE/mct-spay-shuttle-san-jose-ca) still lists the feral package at $125. A local referral guide lists $150; the clinic’s own booking page takes precedence. Animal Fix’s $55 package and Napa Humane’s $55 appointment-based TNR were also rechecked.
+- Solano County’s existing no-public-appointments listing is now explicitly marked paused, preserving its earlier source-check date. HSSV’s existing paused label remains.
+
+### Candidates deferred or excluded
+
+- [SPCA of Solano County](https://solanospca.com/) reports its spay/neuter clinic closed indefinitely; it was not added as an active clinic.
+- [PAW Fund](https://pawfund.org/spay-neuter/) describes funding restrictions and excludes community cats. It was not added as a general TNR funding option.
+- Peninsula CatWorks’ older voucher guidance and Compassion Without Borders’ older clinic pages did not establish current public Bay Area TNR booking access, so no active clinic listing was inferred.
+
+The education page draws on [Alley Cat Allies’ TNR overview](https://www.alleycat.org/our-work/trap-neuter-return/), its [step-by-step guide](https://www.alleycat.org/resources/how-to-help-community-cats-a-step-by-step-guide-to-trap-neuter-return/), [Bay Area Cats’ trapping guide and workshops](https://bayareacats.org/trapping), and [sick/injured-cat guidance](https://www.alleycat.org/resources-page/how-to-help-sick-injured-cats/). Feeding, recovery, and release timing remain provider-specific.

@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [Fremont, Newark, Union City]
 type: TNR
+services: ["surgery"]
 cost: "Call for current price; Ohlone voucher eligible cats pay $60 copay"
 booking: "Call (510) 573-4660 and follow the voicemail booking instructions. Allow a day or two for a response; do not leave repeat messages."
 eligibility: "Feral/community cats are accepted by appointment. Ask about residency rules and current eligibility; Ohlone vouchers are for Fremont, Newark, and Union City residents."

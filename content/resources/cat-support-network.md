@@ -4,6 +4,7 @@ county: Contra Costa
 counties: [Contra Costa]
 cities: [Walnut Creek, Concord, Martinez, Danville, San Ramon, Antioch, Pittsburg, Brentwood, Oakley]
 type: TNR
+services: ["tnr-help"]
 countywide: true
 cost: "Contact to ask about current assistance; no fee schedule published"
 booking: "Submit the spay/neuter help request for friendly or community cats. Include the location and what assistance you need; trapping help may be available for community cats."

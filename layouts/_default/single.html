@@ -2,15 +2,17 @@
 <html lang="en">
   {{ partial "head.html" . }}
   <body>
-    <header class="topbar"><a class="brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><div class="topbar-tools"><a class="nav-link" href="{{ "" | relURL }}#finder" data-i18n="findProgram">Find a program <span aria-hidden="true">↗</span></a><label class="language-label"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="ui-language" aria-label="Language" data-i18n-aria-label="languageLabel"><option value="en">English</option><option value="es">Español</option><option value="zh-CN">简体中文</option></select></label></div></header>
+    <header class="topbar"><a class="brand" href="{{ "" | relURL }}">{{ partial "brand.html" . }}</a><div class="topbar-tools"><a class="nav-link" href="{{ "" | relURL }}#finder" data-i18n="findProgram">Find a program <span aria-hidden="true">↗</span></a><label class="language-label"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="ui-language" aria-label="Language" data-i18n-aria-label="languageLabel"><option value="en">English</option><option value="es">Español</option><option value="zh-CN">简体中文</option></select></label></div></header>
     <main class="detail-page">
       <a class="back-link" href="{{ "" | relURL }}#finder">← <span data-i18n="backDirectory">Back to the directory</span></a>
       <p class="eyebrow muted">{{ .Params.type }} · {{ delimit .Params.counties ", " }} COUNTY</p>
       <h1>{{ .Title }}</h1>
+      {{ partial "services.html" . }}
+      {{ if eq .Params.status "paused" }}<p class="detail-status"><span data-i18n="paused">Temporarily paused</span></p>{{ else if eq .Params.status "limited" }}<p class="detail-status"><span data-i18n="limited">Limited access</span></p>{{ end }}
       <p class="detail-location">{{ .Params.location }}</p>
       <div class="detail-cost"><span data-i18n="costLabel">TYPICAL COST</span><strong>{{ .Params.cost }}</strong></div>
       <div class="detail-columns">
-        <section><h2 data-i18n="howToBook">How to book</h2><p>{{ .Params.booking }}</p><a class="primary-link" href="{{ .Params.booking_url }}" target="_blank" rel="noopener"><span data-i18n="openBooking">Open booking information</span> ↗</a></section>
+        <section><h2>{{ if in .Params.services "surgery" }}<span data-i18n="howToBook">How to book</span>{{ else }}<span data-i18n="requestHelp">Request help</span>{{ end }}</h2><p>{{ .Params.booking }}</p><a class="primary-link" href="{{ .Params.booking_url }}" target="_blank" rel="noopener">{{ if eq .Params.status "paused" }}<span data-i18n="checkStatus">Check status</span>{{ else if in .Params.services "surgery" }}<span data-i18n="openBooking">Open booking information</span>{{ else }}<span data-i18n="requestHelp">Request help</span>{{ end }} ↗</a></section>
         <section><h2 data-i18n="whoCanUse">Who can use this</h2><p>{{ .Params.eligibility }}</p><h2 data-i18n="serviceDetails">Service details</h2><p>{{ .Params.details }}</p></section>
       </div>
       {{ with .Params.related }}
@@ -20,6 +22,6 @@
       <p class="detail-note" data-i18n="detailNote">Fees, service area, and appointment availability can change. Please confirm current instructions before trapping or traveling.</p>
       <p class="language-note" data-i18n="sourceLanguageNote">Provider listings are displayed in their source language. Use the linked provider page or ask someone you trust for translation help.</p>
     </main>
-    <footer><a class="brand footer-brand" href="{{ "" | relURL }}"><span class="brand-mark">✳</span><span>Bay Area <b>Cat Care</b></span></a><span>Made for the humans who show up for cats.</span><a href="{{ "about/" | relURL }}"><span data-i18n="aboutGuide">About this guide</span> ↗</a></footer>
+    {{ partial "footer.html" . }}
   </body>
 </html>

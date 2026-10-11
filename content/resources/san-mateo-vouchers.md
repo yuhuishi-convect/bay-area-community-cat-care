@@ -4,6 +4,7 @@ county: San Mateo
 counties: [San Mateo]
 cities: [San Mateo, Redwood City, Daly City, South San Francisco, Half Moon Bay]
 type: Voucher
+services: ["vouchers"]
 countywide: true
 cost: "Voucher covers some or all of surgery; co-pay may apply"
 booking: "Request a voucher online/by mail or call (650) 573-3940. After it arrives, book a participating clinic and confirm any co-pay."

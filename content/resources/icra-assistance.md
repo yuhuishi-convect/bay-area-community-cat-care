@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [Alameda, Oakland, San Leandro]
 type: TNR
+services: ["tnr-help"]
 cost: "Donation requested; ICRA covers $150–$250 per surgery"
 booking: "Submit the online spay/neuter assistance request before trapping."
 eligibility: "Requests for cats in Alameda, Oakland, or San Leandro. Unowned community cats are prioritized; limited monthly appointments and current waits are 3+ months."

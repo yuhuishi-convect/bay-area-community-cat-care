@@ -4,6 +4,7 @@ county: Napa
 counties: [Napa]
 cities: [Napa, American Canyon, St. Helena, Calistoga]
 type: Voucher
+services: ["vouchers"]
 countywide: true
 cost: "Voucher covers TNR surgery at Napa Humane"
 booking: "Call Napa County Animal Shelter at (707) 253-4382 to request a voucher, then book the surgery with Napa Humane."

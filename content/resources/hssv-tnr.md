@@ -4,6 +4,7 @@ county: Santa Clara
 counties: [Santa Clara]
 cities: [Milpitas, San Jose, Santa Clara County]
 type: TNR
+services: ["surgery"]
 cost: "Appointments temporarily paused"
 booking: "Email medicalcenter@hssv.org to ask when appointments reopen and whether your colony can be served."
 eligibility: "Unowned free-roaming cats and managed colonies in the HSSV service area."

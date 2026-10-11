@@ -4,6 +4,7 @@ county: Solano
 counties: [Solano, Napa]
 cities: [Fairfield, Vacaville, Dixon, Suisun City, Napa]
 type: TNR
+services: ["tnr-help"]
 countywide: true
 cost: "Clinic-dependent; published rates vary"
 booking: "Call the hotline at (707) 421-5515 or email tnr@solanoferals.org for current clinic dates and transport arrangements."

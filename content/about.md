@@ -16,12 +16,13 @@ Copy a similar file from `content/resources/`, use a short unique filename such 
 - `counties`: every county where cats can qualify. These values automatically populate the county selector.
 - `cities`: cities or named areas served. Exact city searches match these names.
 - `countywide`: set to `true` only when the program serves all cities in one of its listed counties. This lets nearby-city searches include it even when that city is not named in `cities`.
-- `type`: `TNR`, `Voucher`, or `Owned-cat clinic`. This controls the service filter; TNR and voucher records appear under “Community cats”.
+- `type`: `TNR`, `Voucher`, `Owned-cat clinic`, or `Owned-cat assistance`. Owned-cat records are hidden in the interactive finder until “Also show owned-cat options” is selected.
+- `services`: one or more of `surgery`, `tnr-help`, `trap-loans`, and `vouchers`. “Surgery clinics” requires `surgery`; “Get local help” shows the other three services. Only use `surgery` for a provider operating a surgery service, not an organization that merely arranges a referral. A clinic may also offer trap loans or local help.
 - `cost`, `booking`, `eligibility`, `details`: concise, verified visitor-facing facts. Use “Contact to confirm” when the provider does not publish a fee or current availability.
 - `booking_url`, `website`, `source_url`: direct links to booking instructions, the provider, and the page that supports the listing. These can point to the same page when appropriate.
 - `verified`: date checked, for example `Sep 26, 2026`.
 - `featured`: optional `true` to raise a listing when nearby options have equal match strength.
-- `status`: optional `paused` when the provider explicitly reports that a service is temporarily unavailable.
+- `status`: optional `paused` when the provider explicitly reports that a service is temporarily unavailable, or `limited` for restricted access (such as rescue partners only). Paused records sort after other matching options.
 - `related`: optional list of resource filenames (without `.md`) for associated vouchers, partner clinics, or alternate programs. This adds links on the detail page.
 
 For example, a voucher that can be used at a clinic should have its own resource record. Add the clinic record's filename under `related` on the voucher record, and add the voucher filename under `related` on the clinic record. Their `counties` and `cities` still determine which searches show each listing; related links give people a direct path between the assistance and the place where they book.
@@ -36,6 +37,10 @@ ZIP-code search uses the generated `data/zip-counties.json` lookup. To include a
 
 ## Connect the record to the directory
 
-No registration step is needed: Hugo includes every Markdown file under `content/resources/` in the home page data. The directory filters use `counties`, `cities`, `countywide`, and `type`; the booking and source links are rendered from their URL fields. If two services should point to each other, use matching `related` slug values. Rebuild with `hugo` and preview with `hugo server`.
+No registration step is needed: Hugo includes every Markdown file under `content/resources/` in the home page data. The directory filters use `counties`, `cities`, `countywide`, `type`, and `services`; the booking and source links are rendered from their URL fields. If two services should point to each other, use matching `related` slug values. Rebuild with `hugo` and preview with `hugo server`.
 
 This is a referral guide, not a booking service. The clinic or government program remains the authority for current eligibility, prices, and appointment availability. The research source ledger is maintained in `RESEARCH.md` in the project repository.
+
+The home page introduces three paths: Learn TNR, Get local help, and Find surgery clinics. The educational page is at `/learn-tnr/`; `/resources/` lists every record by county in ordinary HTML, so visitors without JavaScript and search crawlers can follow the detail-page links. Finder links can specify `?county=Marin&service=help#finder` or `?service=clinic#finder`; add `owned=true` only when deliberately linking to companion-cat services.
+
+The footer’s coverage-review date records the latest directory research pass. Each listing keeps its own source-check date; a coverage pass does not imply every existing listing was rechecked.

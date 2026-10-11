@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [San Leandro, Livermore]
 type: TNR
+services: ["surgery"]
 cost: "$50 per cat"
 booking: "Call (510) 639-7387; community-cat appointments are scheduled by phone only."
 eligibility: "Current city partnerships are for San Leandro and Livermore residents. Call to confirm address eligibility and appointment availability."

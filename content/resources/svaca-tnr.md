@@ -4,6 +4,7 @@ county: Santa Clara
 counties: [Santa Clara]
 cities: [Santa Clara, Campbell, Los Gatos, Monte Sereno, Mountain View]
 type: TNR
+services: ["surgery", "tnr-help"]
 cost: "Contact SVACA for current cost and availability"
 booking: "Use the Community Cat Spay and Neuter request form linked from SVACA's program page."
 eligibility: "Unowned outdoor cats in Santa Clara, Campbell, Los Gatos, Monte Sereno, or Mountain View."

@@ -4,6 +4,7 @@ county: San Mateo
 counties: [San Mateo]
 cities: [Daly City, South San Francisco, San Bruno, Burlingame, San Mateo, Foster City, Redwood City, East Palo Alto, Half Moon Bay]
 type: TNR
+services: ["surgery"]
 cost: "$50 package; San Mateo County vouchers may cover it"
 booking: "Call the dedicated feral-cat line at (650) 340-7022 ext. 679. The county also recommends confirming voucher participation before booking."
 eligibility: "Feral cats brought in humane traps; county voucher terms require San Mateo County residency. Ask about current direct-service eligibility."

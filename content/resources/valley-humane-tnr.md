@@ -4,6 +4,7 @@ county: Alameda
 counties: [Alameda]
 cities: [Pleasanton, Dublin, Livermore]
 type: TNR
+services: ["surgery"]
 cost: "$100 per cat"
 booking: "Use the Surgery Center contact form to ask about limited TNR appointments; surgery appointments are released monthly."
 eligibility: "Community cats brought in humane traps. Confirm whether your city is within the current service area."

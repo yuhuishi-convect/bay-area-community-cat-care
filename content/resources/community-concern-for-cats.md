@@ -4,6 +4,7 @@ county: Contra Costa
 counties: [Contra Costa]
 cities: [Walnut Creek, Concord, Martinez, Antioch, Richmond]
 type: TNR
+services: ["tnr-help"]
 countywide: true
 cost: "No-cost county TNR (confirm availability)"
 booking: "Contact CC4C to join the waitlist; check their TNR resource page for current contact details."
