@@ -220,3 +220,33 @@ footer { background: #edf0e4; border-color: #d3ddc9; min-height: 95px; }
   .field-guide-caption { font-size: 14px; }
   .section-heading { flex-wrap: wrap; }
 }
+
+/* Each card shares ten content rows with its neighbors, even when text wraps
+   or booking details expand. Single-column cards keep their natural height. */
+.resource-card:hover { transform: none; }
+.resource-card .card-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+}
+.resource-card .card-actions .primary-link { justify-content: center; }
+.resource-card .card-actions .source-link { white-space: nowrap; }
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 651px) {
+    .resource-grid { column-gap: 20px; row-gap: 0; }
+    .resource-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 10;
+      row-gap: 0;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    .resource-card > * { min-width: 0; }
+    .resource-card .card-cost {
+      align-self: stretch;
+      justify-content: flex-start;
+    }
+    .resource-card .card-actions { align-self: stretch; }
+  }
+}
